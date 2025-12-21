@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayak Consulting LLC | Senior Java & R&D Excellence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .hero-gradient { background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1518433278981-d58b73595c2a?q=80&w=2000&auto=format&fit=crop'); background-size: cover; background-position: center; }
+        .card { background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="text-2xl font-bold tracking-tighter text-blue-400">KAYAK CONSULTING LLC</div>
+        <div>
+            <a href="https://www.linkedin.com/in/federico-a-8845368/" target="_blank" class="text-gray-400 hover:text-white transition">LinkedIn Profile</a>
+        </div>
+    </nav>
+
+    <header class="hero-gradient min-h-[70vh] flex flex-col items-center justify-center text-center px-4">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Navigating Complex <span class="text-blue-500">Software Challenges</span></h1>
+        <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mb-10">High-performance Java Engineering, Hardware Integrations, and Strategic R&D for Global Enterprises.</p>
+        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition duration-300 shadow-xl shadow-blue-900/20">Partner With Us</a>
+    </header>
+
+    <section class="py-24 max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-16 text-center">Core Expertise</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="card p-8 rounded-2xl">
+                <div class="text-blue-500 mb-4 text-3xl">☁️</div>
+                <h3 class="text-xl font-bold mb-3">Cloud-Native Systems</h3>
+                <p class="text-gray-400">Designing scalable, high-availability architectures for mission-critical applications.</p>
+            </div>
+            <div class="card p-8 rounded-2xl">
+                <div class="text-blue-500 mb-4 text-3xl">☕</div>
+                <h3 class="text-xl font-bold mb-3">Backend Engineering</h3>
+                <p class="text-gray-400">20+ years of expert Java development, Spring Boot, and robust microservices.</p>
+            </div>
+            <div class="card p-8 rounded-2xl">
+                <div class="text-blue-500 mb-4 text-3xl">⚙️</div>
+                <h3 class="text-xl font-bold mb-3">Hardware Integrations</h3>
+                <p class="text-gray-400">Interfacing software ecosystems with complex hardware and embedded systems.</p>
+            </div>
+            <div class="card p-8 rounded-2xl">
+                <div class="text-blue-500 mb-4 text-3xl">🔬</div>
+                <h3 class="text-xl font-bold mb-3">Strategic R&D</h3>
+                <p class="text-gray-400">Leading research and development initiatives to prototype innovative technologies.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-900/50 px-6">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="w-48 h-48 rounded-full bg-blue-900/30 border-2 border-blue-500/50 flex items-center justify-center text-6xl">FA</div>
+            <div class="flex-1">
+                <h2 class="text-3xl font-bold mb-4">Federico Autalan</h2>
+                <p class="text-blue-400 font-semibold mb-6">Founder & Lead Software Consultant</p>
+                <blockquote class="text-xl italic text-gray-300 leading-relaxed border-l-4 border-blue-600 pl-6">
+                    "With over two decades in the IT industry, I specialize in transforming intricate business requirements into reliable, production-ready software. I bridge the gap between innovative research and industrial-grade engineering."
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 max-w-3xl mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold mb-4">Let's Connect</h2>
+        <p class="text-gray-400 mb-12">Inquiries are confidential. We’ll get back to you within 24 hours.</p>
+        
+        <form action="https://formspree.io/f/mdanzyvl" method="POST" class="space-y-4 text-left">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input type="text" name="name" placeholder="Full Name" required class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 focus:border-blue-500 outline-none">
+                <input type="text" name="company" placeholder="Company Name" class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 focus:border-blue-500 outline-none">
+            </div>
+            <input type="email" name="email" placeholder="Work Email" required class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 focus:border-blue-500 outline-none">
+            <textarea name="message" placeholder="How can we help?" rows="5" required class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 focus:border-blue-500 outline-none"></textarea>
+            <button type="submit" class="w-full bg-blue-600 py-4 rounded-lg font-bold hover:bg-blue-700 transition duration-300">Send Inquiry</button>
+        </form>
+    </section>
+
+    <footer class="py-12 border-t border-slate-800 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Kayak Consulting LLC. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
