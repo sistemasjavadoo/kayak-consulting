@@ -10,7 +10,8 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; scroll-behavior: smooth; }
         .hero-gradient { background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1518433278981-d58b73595c2a?q=80&w=2000&auto=format&fit=crop'); background-size: cover; background-position: center; }
-        .card { background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
+        .card { background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-5px); border-color: rgba(59, 130, 246, 0.4); }
     </style>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
@@ -55,12 +56,65 @@
             <div class="card p-8 rounded-2xl">
                 <div class="text-blue-500 mb-4 text-3xl">⚙️</div>
                 <h3 class="text-xl font-bold mb-3">Hardware Integrations</h3>
-                <p class="text-gray-400">Interfacing software ecosystems with complex hardware and embedded systems.</p>
+                <p class="text-gray-400">Interfacing software ecosystems with complex hardware and IoT telemetry.</p>
             </div>
             <div class="card p-8 rounded-2xl">
                 <div class="text-blue-500 mb-4 text-3xl">🔬</div>
                 <h3 class="text-xl font-bold mb-3">Strategic R&D</h3>
-                <p class="text-gray-400">Leading research and development initiatives to prototype innovative technologies.</p>
+                <p class="text-gray-400">Leading research initiatives to prototype and validate innovative technologies.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-900/30 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4 text-center">Proven Solutions</h2>
+            <p class="text-gray-400 text-center mb-16 max-w-2xl mx-auto">A selection of high-impact projects where we solved critical business challenges through technical excellence.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card p-8 rounded-2xl flex flex-col h-full">
+                    <span class="text-blue-400 text-sm font-bold tracking-widest uppercase mb-2">Telecom & Graph Theory</span>
+                    <h3 class="text-2xl font-bold mb-4">Root Cause Analysis Engine</h3>
+                    <p class="text-gray-300 mb-6 flex-grow">Designed a real-time diagnostic system using <strong>Neo4j (Graph DB)</strong> and <strong>Java</strong> to identify root causes in HFC networks, drastically reducing unnecessary technician dispatches.</p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">Neo4j</span>
+                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">BRMS</span>
+                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">Docker</span>
+                    </div>
+                </div>
+
+                <div class="card p-8 rounded-2xl flex flex-col h-full">
+                    <span class="text-blue-400 text-sm font-bold tracking-widest uppercase mb-2">Maritime & IoT</span>
+                    <h3 class="text-2xl font-bold mb-4">Fleet & Fuel Telemetry</h3>
+                    <p class="text-gray-300 mb-6 flex-grow">Implemented a hybrid cloud/on-ship system to monitor fuel levels and GPS positioning in real-time, preventing theft and auditing vessel efficiency via REST APIs.</p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">IoT</span>
+                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">Cloud REST API</span>
+                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">Real-time Data</span>
+                    </div>
+                </div>
+
+                <div class="card p-8 rounded-2xl flex flex-col h-full">
+                    <span class="text-blue-400 text-sm font-bold tracking-widest uppercase mb-2">E-commerce & AI Integration</span>
+                    <h3 class="text-2xl font-bold mb-4">Smart Catalog Scaling</h3>
+                    <p class="text-gray-300 mb-6 flex-grow">Developed high-throughput data pipelines using <strong>Kotlin</strong> and <strong>Kinesis</strong> to integrate Machine Learning models into the production catalog, automating product attribute tagging.</p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">Kotlin</span>
+                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">AWS Kinesis</span>
+                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">RabbitMQ</span>
+                    </div>
+                </div>
+
+                <div class="card p-8 rounded-2xl flex flex-col h-full">
+                    <span class="text-blue-400 text-sm font-bold tracking-widest uppercase mb-2">Fintech & Payments</span>
+                    <h3 class="text-2xl font-bold mb-4">Core Payment System Migration</h3>
+                    <p class="text-gray-300 mb-6 flex-grow">Led the phased migration of mission-critical payment APIs across LATAM, improving system stability to 99.9% uptime and optimizing database performance.</p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">Java</span>
+                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">Performance Tuning</span>
+                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">Scalability</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
