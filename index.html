@@ -10,8 +10,8 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; scroll-behavior: smooth; }
         .hero-gradient { background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1518433278981-d58b73595c2a?q=80&w=2000&auto=format&fit=crop'); background-size: cover; background-position: center; }
-        .card { background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); transition: transform 0.3s ease; }
-        .card:hover { transform: translateY(-5px); border-color: rgba(59, 130, 246, 0.4); }
+        .card { background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); transition: all 0.3s ease; }
+        .card:hover { transform: translateY(-5px); border-color: rgba(59, 130, 246, 0.6); background: rgba(30, 41, 59, 0.8); }
     </style>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
@@ -68,156 +68,37 @@
 
     <section class="py-24 bg-slate-900/30 px-6">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-4 text-center">Proven Solutions</h2>
-            <p class="text-gray-400 text-center mb-16 max-w-2xl mx-auto">A selection of high-impact projects where we solved critical business challenges through technical excellence.</p>
+            <h2 class="text-3xl font-bold mb-4 text-center">Proven Solutions & Case Studies</h2>
+            <p class="text-gray-400 text-center mb-16 max-w-2xl mx-auto">Two decades of delivering high-impact engineering for telecommunications, supply chain, and fintech leaders.</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
                 <div class="card p-8 rounded-2xl flex flex-col h-full">
-                    <span class="text-blue-400 text-sm font-bold tracking-widest uppercase mb-2">Telecom & Graph Theory</span>
-                    <h3 class="text-2xl font-bold mb-4">Root Cause Analysis Engine</h3>
-                    <p class="text-gray-300 mb-6 flex-grow">Designed a real-time diagnostic system using <strong>Neo4j (Graph DB)</strong> and <strong>Java</strong> to identify root causes in HFC networks, drastically reducing unnecessary technician dispatches.</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">Neo4j</span>
-                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">BRMS</span>
-                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">Docker</span>
+                    <span class="text-blue-400 text-xs font-bold tracking-widest uppercase mb-2">Telecom & Graph Theory</span>
+                    <h3 class="text-xl font-bold mb-4">Root Cause Analysis Engine</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Modeled complex HFC networks using <strong>Neo4j</strong> to automate fault diagnosis. Reduced operational costs by eliminating 20% of unnecessary technician dispatches.</p>
+                    <div class="flex flex-wrap gap-2 mt-auto pt-4">
+                        <span class="bg-blue-500/10 text-blue-400 text-[10px] px-2 py-1 rounded border border-blue-500/20">Neo4j</span>
+                        <span class="bg-blue-500/10 text-blue-400 text-[10px] px-2 py-1 rounded border border-blue-500/20">Java</span>
+                        <span class="bg-blue-500/10 text-blue-400 text-[10px] px-2 py-1 rounded border border-blue-500/20">Docker</span>
                     </div>
                 </div>
 
                 <div class="card p-8 rounded-2xl flex flex-col h-full">
-                    <span class="text-blue-400 text-sm font-bold tracking-widest uppercase mb-2">Maritime & IoT</span>
-                    <h3 class="text-2xl font-bold mb-4">Fleet & Fuel Telemetry</h3>
-                    <p class="text-gray-300 mb-6 flex-grow">Implemented a hybrid cloud/on-ship system to monitor fuel levels and GPS positioning in real-time, preventing theft and auditing vessel efficiency via REST APIs.</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">IoT</span>
-                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">Cloud REST API</span>
-                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">Real-time Data</span>
+                    <span class="text-blue-400 text-xs font-bold tracking-widest uppercase mb-2">Maritime IoT</span>
+                    <h3 class="text-xl font-bold mb-4">Fleet Telemetry & Anti-Theft</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Built a real-time monitoring system for vessel positioning and fuel levels. Enabled fuel-theft prevention and remote audit capabilities via Cloud REST APIs.</p>
+                    <div class="flex flex-wrap gap-2 mt-auto pt-4">
+                        <span class="bg-blue-500/10 text-blue-400 text-[10px] px-2 py-1 rounded border border-blue-500/20">IoT</span>
+                        <span class="bg-blue-500/10 text-blue-400 text-[10px] px-2 py-1 rounded border border-blue-500/20">Cloud API</span>
+                        <span class="bg-blue-500/10 text-blue-400 text-[10px] px-2 py-1 rounded border border-blue-500/20">Security</span>
                     </div>
                 </div>
 
                 <div class="card p-8 rounded-2xl flex flex-col h-full">
-                    <span class="text-blue-400 text-sm font-bold tracking-widest uppercase mb-2">E-commerce & AI Integration</span>
-                    <h3 class="text-2xl font-bold mb-4">Smart Catalog Scaling</h3>
-                    <p class="text-gray-300 mb-6 flex-grow">Developed high-throughput data pipelines using <strong>Kotlin</strong> and <strong>Kinesis</strong> to integrate Machine Learning models into the production catalog, automating product attribute tagging.</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">Kotlin</span>
-                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">AWS Kinesis</span>
-                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">RabbitMQ</span>
-                    </div>
-                </div>
-
-                <div class="card p-8 rounded-2xl flex flex-col h-full">
-                    <span class="text-blue-400 text-sm font-bold tracking-widest uppercase mb-2">Fintech & Payments</span>
-                    <h3 class="text-2xl font-bold mb-4">Core Payment System Migration</h3>
-                    <p class="text-gray-300 mb-6 flex-grow">Led the phased migration of mission-critical payment APIs across LATAM, improving system stability to 99.9% uptime and optimizing database performance.</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">Java</span>
-                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">Performance Tuning</span>
-                        <span class="bg-slate-800 text-xs px-3 py-1 rounded-full border border-slate-700">Scalability</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-slate-900/50 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-            <div class="w-48 h-48 rounded-full border-4 border-blue-500/30 overflow-hidden shadow-2xl shadow-blue-500/20 shrink-0">
-                <img 
-                    src="https://raw.githubusercontent.com/sistemasjavadoo/kayak-consulting/main/my_profile.jpg" 
-                    alt="Federico Autalan" 
-                    class="w-full h-full object-cover object-center scale-110"
-                >
-            </div>
-            <div class="flex-1 text-center md:text-left">
-                <h2 class="text-3xl font-bold mb-2">Federico Autalan</h2>
-                <p class="text-blue-400 font-semibold mb-6">Founder & Lead Software Consultant</p>
-                <blockquote class="text-xl italic text-gray-300 leading-relaxed border-l-0 md:border-l-4 border-blue-600 pl-0 md:pl-6">
-                    "With over 20 years of experience, Kayak Consulting LLC represents a commitment to technical excellence and global reliability. We provide seamless contracting and domestic billing for our North American partners, leveraging world-class engineering talent across borders."
-                </blockquote>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-24 max-w-3xl mx-auto px-6 text-center">
-        <h2 class="text-4xl font-bold mb-4">Let's Connect</h2>
-        <p class="text-gray-400 mb-12">Direct access to U.S. domestic billing and contracting. We will respond to your inquiry within 24 hours.</p>
-        
-        <form id="contact-form" action="https://formspree.io/f/xdazwvwp" method="POST" class="space-y-4 text-left">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input type="text" name="name" placeholder="Full Name" required class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 focus:border-blue-500 outline-none text-white">
-                <input type="text" name="company" placeholder="Company Name" class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 focus:border-blue-500 outline-none text-white">
-            </div>
-            <input type="email" name="email" placeholder="Work Email" required class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 focus:border-blue-500 outline-none text-white">
-            <textarea name="message" placeholder="How can we help your project?" rows="5" required class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 focus:border-blue-500 outline-none text-white"></textarea>
-            
-            <input type="text" name="_gotcha" style="display:none">
-            
-            <button type="submit" id="submit-button" class="w-full bg-blue-600 py-4 rounded-lg font-bold hover:bg-blue-700 transition duration-300 disabled:opacity-50">
-                Send Inquiry
-            </button>
-            <p id="form-status" class="mt-4 text-center font-medium"></p>
-        </form>
-    </section>
-
-    <footer class="py-12 border-t border-slate-800 text-center text-gray-500 text-sm">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center gap-4">
-            <div class="font-semibold text-gray-400">KAYAK CONSULTING LLC</div>
-            <div class="max-w-xs leading-relaxed">
-                30 N Gould St Ste R<br>
-                Sheridan, WY 82801, United States
-            </div>
-            <p class="mt-4">&copy; 2026 Kayak Consulting LLC. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <a href="https://www.linkedin.com/in/federico-a-8845368/" target="_blank" class="fixed bottom-8 right-8 bg-[#0077b5] p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 group">
-        <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-        <span class="absolute right-16 bg-white text-blue-900 px-2 py-1 rounded text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Let's connect on LinkedIn</span>
-    </a>
-
-    <script>
-        const form = document.getElementById("contact-form");
-        const status = document.getElementById("form-status");
-        const button = document.getElementById("submit-button");
-
-        async function handleSubmit(event) {
-          event.preventDefault();
-          const data = new FormData(event.target);
-          
-          button.disabled = true;
-          button.innerText = "Sending...";
-          status.innerText = "";
-
-          fetch(event.target.action, {
-            method: form.method,
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-          }).then(response => {
-            if (response.ok) {
-              status.classList.add("text-green-400");
-              status.innerText = "Thanks! Your inquiry has been sent. We'll be in touch soon.";
-              form.reset();
-            } else {
-              response.json().then(data => {
-                status.classList.add("text-red-400");
-                if (Object.hasOwn(data, 'errors')) {
-                  status.innerText = data["errors"].map(error => error["message"]).join(", ");
-                } else {
-                  status.innerText = "Oops! There was a problem submitting your form.";
-                }
-              })
-            }
-          }).catch(error => {
-            status.classList.add("text-red-400");
-            status.innerText = "Oops! Connection error. Please try again later.";
-          }).finally(() => {
-            button.disabled = false;
-            button.innerText = "Send Inquiry";
-          });
-        }
-        form.addEventListener("submit", handleSubmit)
-    </script>
-</body>
-</html>
+                    <span class="text-blue-400 text-xs font-bold tracking-widest uppercase mb-2">E-commerce Scalability</span>
+                    <h3 class="text-xl font-bold mb-4">AI-Driven Catalog Automation</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Architected data pipelines to integrate ML models into a high-traffic catalog. Automated attribute tagging from images, saving thousands of manual entry hours.</p>
+                    <div class="flex flex-wrap gap-2 mt-auto pt-4">
+                        <span class="bg-blue-500/10 text-blue-400 text-[10px] px-2 py-1 rounded border border-blue-500/20">Kotlin</span>
+                        <span class="bg-blue-500/10 text-blue-400 text-[10px] px-2 py-1 rounded border border
