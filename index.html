@@ -26,6 +26,82 @@
 
         .card:hover { transform: translateY(-5px); border-color: rgba(59, 130, 246, 0.4); }
 
+        .client-logo-slot {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 7.5rem;
+            height: 3.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .client-logo-slot {
+                width: 9rem;
+                height: 4rem;
+            }
+        }
+
+        .client-logo-slot--wide {
+            width: 9.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .client-logo-slot--wide {
+                width: 11rem;
+            }
+        }
+
+        /* Logos con fondo blanco (JPEG): mini tarjeta clara */
+        .client-logo-slot--light {
+            background: #f8fafc;
+            border-radius: 0.5rem;
+            padding: 0.4rem 0.65rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.35);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .client-logo-slot--light:hover {
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.4);
+        }
+
+        .client-logo-slot--light .client-logo-img {
+            opacity: 1;
+            filter: none;
+        }
+
+        .client-logo-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        /* PNG/JPG a color sobre fondo oscuro */
+        .client-logo-img--color {
+            opacity: 0.75;
+            filter: grayscale(1) brightness(1.15);
+            transition: opacity 0.3s ease, filter 0.3s ease;
+        }
+
+        .client-logo-slot:hover .client-logo-img--color {
+            opacity: 1;
+            filter: grayscale(0) brightness(1);
+        }
+
+        /* SVG monocromo: blanco limpio en hero oscuro */
+        .client-logo-img--mono {
+            filter: brightness(0) invert(1);
+            opacity: 0.72;
+            transition: opacity 0.3s ease;
+        }
+
+        .client-logo-slot:hover .client-logo-img--mono {
+            opacity: 1;
+        }
+
     </style>
 
 </head>
@@ -91,22 +167,32 @@
     </div>
 
 
-        <!--div class="w-full max-w-6xl mt-12">
+    <div class="w-full max-w-6xl mt-12">
             <p class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-8">Experience with Teams at</p>
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 px-4">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 px-4">
 
-                <img src="logos/ml.png" alt="MercadoLibre" class="h-6 md:h-8 grayscale brightness-200 opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                <div class="client-logo-slot">
+                    <img src="logos/ml.png" alt="MercadoLibre" class="client-logo-img client-logo-img--color">
+                </div>
 
-                <img src="logos/rtr.jpg" alt="Rent The Runway" class="h-5 md:h-6 grayscale brightness-200 opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                <div class="client-logo-slot">
+                    <img src="logos/rtr.jpg" alt="Rent The Runway" class="client-logo-img client-logo-img--color">
+                </div>
 
-                <img src="logos/siemens.svg" alt="Siemens" class="h-5 md:h-7 grayscale brightness-200 opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                <div class="client-logo-slot">
+                    <img src="logos/siemens.svg" alt="Siemens" class="client-logo-img client-logo-img--mono">
+                </div>
 
-                <img src="logos/vw.svg" alt="Volkswagen" class="h-10 md:h-14 grayscale brightness-200 opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                <div class="client-logo-slot client-logo-slot--light">
+                    <img src="logos/vw.jpeg" alt="Volkswagen" class="client-logo-img">
+                </div>
 
-                <img src="logos/telecom.jpeg" alt="Telecom" class="h-5 md:h-7 grayscale brightness-200 opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                <div class="client-logo-slot client-logo-slot--light client-logo-slot--wide">
+                    <img src="logos/telecom.jpeg" alt="Telecom" class="client-logo-img">
+                </div>
 
             </div>
-        </div-->
+        </div>
 
 </header>
 
