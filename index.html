@@ -179,6 +179,120 @@
             }
         }
 
+        .classifier-demo-row {
+            flex-direction: column !important;
+        }
+
+        .classifier-demo-row > .portfolio-demo-preview {
+            flex: 1 1 auto;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .classifier-carousel {
+            position: relative;
+            width: 100%;
+        }
+
+        .classifier-carousel-viewport {
+            overflow: hidden;
+            border-radius: 0.625rem;
+            border: 1px solid rgba(51, 65, 85, 0.9);
+            background: #09090b;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+        }
+
+        .classifier-carousel-track {
+            display: flex;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+
+        .classifier-carousel-slide {
+            margin: 0;
+            min-width: 100%;
+            flex-shrink: 0;
+        }
+
+        .classifier-carousel-slide img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: min(52vh, 520px);
+            object-fit: contain;
+            object-position: top center;
+        }
+
+        .classifier-carousel-slide figcaption {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-align: center;
+            color: #cbd5e1;
+            background: rgba(15, 23, 42, 0.95);
+            border-top: 1px solid rgba(51, 65, 85, 0.8);
+        }
+
+        .classifier-carousel-btn {
+            position: absolute;
+            top: 42%;
+            transform: translateY(-50%);
+            z-index: 2;
+            width: 2.25rem;
+            height: 2.25rem;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            border-radius: 9999px;
+            background: rgba(15, 23, 42, 0.85);
+            color: #f8fafc;
+            font-size: 1.25rem;
+            line-height: 1;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .classifier-carousel-btn:hover {
+            background: rgba(37, 99, 235, 0.9);
+            border-color: rgba(96, 165, 250, 0.6);
+        }
+
+        .classifier-carousel-btn--prev {
+            left: 0.5rem;
+        }
+
+        .classifier-carousel-btn--next {
+            right: 0.5rem;
+        }
+
+        .classifier-carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .classifier-carousel-dot {
+            border: 1px solid rgba(100, 116, 139, 0.5);
+            background: rgba(30, 41, 59, 0.8);
+            color: #94a3b8;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.65rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        .classifier-carousel-dot.is-active {
+            background: rgba(37, 99, 235, 0.35);
+            border-color: rgba(96, 165, 250, 0.7);
+            color: #e0e7ff;
+        }
+
         .portfolio-demo-divider {
             border-top: 1px solid rgba(51, 65, 85, 0.8);
             margin-top: 2rem;
@@ -421,7 +535,7 @@
 
 
 
-                <div class="portfolio-demo-divider portfolio-demo-section">
+                <div class="portfolio-demo-divider portfolio-demo-section classifier-demo-row">
 
                     <div class="portfolio-demo-copy">
 
@@ -479,15 +593,59 @@
 
                     </div>
 
-                    <div class="portfolio-demo-preview rounded-xl border border-slate-700/80 bg-slate-950/80 p-5 font-mono text-xs text-slate-300 leading-relaxed flex flex-col justify-center">
+                    <div class="portfolio-demo-preview rounded-xl border border-slate-700/80 bg-slate-950/80 p-4 flex flex-col">
 
-                        <p class="text-slate-500 uppercase tracking-widest mb-2">Analysis result (sample)</p>
+                        <p class="text-slate-500 uppercase tracking-widest text-[0.65rem] mb-3 px-1">Live UI · sample classifications</p>
 
-                        <p class="mb-1"><span class="text-slate-500">Category:</span> <span class="text-amber-300">complaint</span> · <span class="text-slate-500">0.92 confidence</span></p>
+                        <div class="classifier-carousel" data-classifier-carousel>
 
-                        <p class="mb-1"><span class="text-slate-500">Route:</span> complaints@mycompany.com</p>
+                            <div class="classifier-carousel-viewport">
 
-                        <p class="text-slate-400">Hugging Face zero-shot (MNLI) · Channel-agnostic core</p>
+                                <div class="classifier-carousel-track" data-carousel-track>
+
+                                    <figure class="classifier-carousel-slide">
+
+                                        <img src="demos/customer.message-classifier/complaint.png" alt="Classifier demo: damaged product message routed as complaint" width="1280" height="720" loading="eager" />
+
+                                        <figcaption>Complaint · 81% confidence</figcaption>
+
+                                    </figure>
+
+                                    <figure class="classifier-carousel-slide">
+
+                                        <img src="demos/customer.message-classifier/shipping.png" alt="Classifier demo: DHL tracking delay routed as shipping inquiry" width="1280" height="720" loading="lazy" />
+
+                                        <figcaption>Shipping inquiry · 58% confidence</figcaption>
+
+                                    </figure>
+
+                                    <figure class="classifier-carousel-slide">
+
+                                        <img src="demos/customer.message-classifier/sales.png" alt="Classifier demo: bulk procurement inquiry routed as sales" width="1280" height="720" loading="lazy" />
+
+                                        <figcaption>Sales inquiry · 80% confidence</figcaption>
+
+                                    </figure>
+
+                                </div>
+
+                            </div>
+
+                            <button type="button" class="classifier-carousel-btn classifier-carousel-btn--prev" data-carousel-prev aria-label="Previous screenshot">‹</button>
+
+                            <button type="button" class="classifier-carousel-btn classifier-carousel-btn--next" data-carousel-next aria-label="Next screenshot">›</button>
+
+                            <div class="classifier-carousel-dots" data-carousel-dots role="tablist" aria-label="Classifier screenshots">
+
+                                <button type="button" class="classifier-carousel-dot is-active" data-carousel-goto="0" role="tab" aria-selected="true">Complaint</button>
+
+                                <button type="button" class="classifier-carousel-dot" data-carousel-goto="1" role="tab" aria-selected="false">Shipping</button>
+
+                                <button type="button" class="classifier-carousel-dot" data-carousel-goto="2" role="tab" aria-selected="false">Sales</button>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
@@ -808,6 +966,39 @@
     }
 
     form.addEventListener("submit", handleSubmit);
+
+    (function initClassifierCarousel() {
+        const root = document.querySelector("[data-classifier-carousel]");
+        if (!root) return;
+
+        const track = root.querySelector("[data-carousel-track]");
+        const dots = root.querySelectorAll("[data-carousel-goto]");
+        const slides = track.querySelectorAll(".classifier-carousel-slide");
+        const total = slides.length;
+        let index = 0;
+
+        function goTo(i) {
+            index = (i + total) % total;
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((dot, n) => {
+                const active = n === index;
+                dot.classList.toggle("is-active", active);
+                dot.setAttribute("aria-selected", active ? "true" : "false");
+            });
+        }
+
+        root.querySelector("[data-carousel-prev]")?.addEventListener("click", () => goTo(index - 1));
+        root.querySelector("[data-carousel-next]")?.addEventListener("click", () => goTo(index + 1));
+        dots.forEach((dot) => {
+            dot.addEventListener("click", () => goTo(Number(dot.dataset.carouselGoto)));
+        });
+
+        let timer = setInterval(() => goTo(index + 1), 7000);
+        root.addEventListener("mouseenter", () => clearInterval(timer));
+        root.addEventListener("mouseleave", () => {
+            timer = setInterval(() => goTo(index + 1), 7000);
+        });
+    })();
 
 </script>
 

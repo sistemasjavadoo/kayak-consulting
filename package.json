@@ -2,7 +2,7 @@
   "name": "kayak-consulting",
   "private": true,
   "scripts": {
-    "dev": "live-server --port=8080 --open=index.html --watch=."
+    "dev": "npx live-server --port=8080 --open=index.html --watch=."
   },
   "devDependencies": {
     "live-server": "^1.2.2"
