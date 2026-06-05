@@ -179,11 +179,13 @@
             }
         }
 
-        .classifier-demo-row {
+        .classifier-demo-row,
+        .smart-supply-demo-row {
             flex-direction: column !important;
         }
 
-        .classifier-demo-row > .portfolio-demo-preview {
+        .classifier-demo-row > .portfolio-demo-preview,
+        .smart-supply-demo-row > .portfolio-demo-preview {
             flex: 1 1 auto;
             width: 100%;
             max-width: 100%;
@@ -481,7 +483,7 @@
 
             <article class="portfolio-card portfolio-card--featured rounded-2xl p-8 lg:col-span-2">
 
-                <div class="portfolio-demo-section">
+                <div class="portfolio-demo-section smart-supply-demo-row">
 
                     <div class="portfolio-demo-copy">
 
@@ -495,7 +497,7 @@
 
                         <p class="text-gray-400 text-sm leading-relaxed mb-4">
 
-                            AI-powered procurement sandbox. An autonomous agent evaluates inventory, supplier pricing, shipping deadlines, and qualitative risk notes — then decides whether to fulfill from stock, purchase externally, or reject with business alternatives.
+                            AI-powered procurement sandbox. An autonomous agent analyzes inventory, vendor metrics, and qualitative risk notes to intelligently route purchase pipelines — optimizing between internal stock, external sourcing, or risk-aware rejection while maintaining strict human-in-the-loop governance.
 
                         </p>
 
@@ -521,13 +523,69 @@
 
                     </div>
 
-                    <div class="portfolio-demo-preview rounded-xl border border-slate-700/80 bg-slate-950/80 p-5 font-mono text-xs text-slate-300 leading-relaxed flex flex-col justify-center">
+                    <div class="portfolio-demo-preview rounded-xl border border-slate-700/80 bg-slate-950/80 p-4 flex flex-col">
 
-                        <p class="text-slate-500 uppercase tracking-widest mb-2">Agent output (sample)</p>
+                        <p class="text-slate-500 uppercase tracking-widest text-[0.65rem] mb-3 px-1">Live UI · procurement sandbox</p>
 
-                        <p class="text-green-400 mb-1">[SUCCESS] PO #PO-2026-A41 · Provider A</p>
+                        <div class="classifier-carousel" data-portfolio-carousel>
 
-                        <p class="text-slate-400">Risk-aware routing · Human-in-the-loop confirm</p>
+                            <div class="classifier-carousel-viewport">
+
+                                <div class="classifier-carousel-track" data-carousel-track>
+
+                                    <figure class="classifier-carousel-slide">
+
+                                        <img src="demos/smart-supply-agent/smart-supply-agent-1.png" alt="SmartSupply Agent dashboard overview with inventory and order terminal" width="1280" height="720" loading="eager" />
+
+                                        <figcaption>Dashboard overview</figcaption>
+
+                                    </figure>
+
+                                    <figure class="classifier-carousel-slide">
+
+                                        <img src="demos/smart-supply-agent/smart-supply-agent-2.png" alt="SmartSupply Agent how it works section explaining the procurement workflow" width="1280" height="720" loading="lazy" />
+
+                                        <figcaption>How it works</figcaption>
+
+                                    </figure>
+
+                                    <figure class="classifier-carousel-slide">
+
+                                        <img src="demos/smart-supply-agent/smart-supply-agent-3.png" alt="SmartSupply Agent suppliers table and AI order processing result" width="1280" height="720" loading="lazy" />
+
+                                        <figcaption>Process order</figcaption>
+
+                                    </figure>
+
+                                    <figure class="classifier-carousel-slide">
+
+                                        <img src="demos/smart-supply-agent/smart-supply-agent-4.png" alt="SmartSupply Agent reasoning log and human-in-the-loop confirmation" width="1280" height="720" loading="lazy" />
+
+                                        <figcaption>Agent output</figcaption>
+
+                                    </figure>
+
+                                </div>
+
+                            </div>
+
+                            <button type="button" class="classifier-carousel-btn classifier-carousel-btn--prev" data-carousel-prev aria-label="Previous screenshot">‹</button>
+
+                            <button type="button" class="classifier-carousel-btn classifier-carousel-btn--next" data-carousel-next aria-label="Next screenshot">›</button>
+
+                            <div class="classifier-carousel-dots" data-carousel-dots role="tablist" aria-label="SmartSupply Agent screenshots">
+
+                                <button type="button" class="classifier-carousel-dot is-active" data-carousel-goto="0" role="tab" aria-selected="true">Overview</button>
+
+                                <button type="button" class="classifier-carousel-dot" data-carousel-goto="1" role="tab" aria-selected="false">How it works</button>
+
+                                <button type="button" class="classifier-carousel-dot" data-carousel-goto="2" role="tab" aria-selected="false">Process order</button>
+
+                                <button type="button" class="classifier-carousel-dot" data-carousel-goto="3" role="tab" aria-selected="false">Agent output</button>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
@@ -597,7 +655,7 @@
 
                         <p class="text-slate-500 uppercase tracking-widest text-[0.65rem] mb-3 px-1">Live UI · sample classifications</p>
 
-                        <div class="classifier-carousel" data-classifier-carousel>
+                        <div class="classifier-carousel" data-portfolio-carousel>
 
                             <div class="classifier-carousel-viewport">
 
@@ -967,14 +1025,10 @@
 
     form.addEventListener("submit", handleSubmit);
 
-    (function initClassifierCarousel() {
-        const root = document.querySelector("[data-classifier-carousel]");
-        if (!root) return;
-
+    document.querySelectorAll("[data-portfolio-carousel]").forEach((root) => {
         const track = root.querySelector("[data-carousel-track]");
         const dots = root.querySelectorAll("[data-carousel-goto]");
-        const slides = track.querySelectorAll(".classifier-carousel-slide");
-        const total = slides.length;
+        const total = track.querySelectorAll(".classifier-carousel-slide").length;
         let index = 0;
 
         function goTo(i) {
@@ -998,7 +1052,7 @@
         root.addEventListener("mouseleave", () => {
             timer = setInterval(() => goTo(index + 1), 7000);
         });
-    })();
+    });
 
 </script>
 
