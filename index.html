@@ -199,6 +199,13 @@
             animation: none;
         }
 
+        .demo-deep-link-highlight {
+            outline: 2px solid rgba(59, 130, 246, 0.55);
+            outline-offset: 6px;
+            border-radius: 0.75rem;
+            transition: outline-color 0.4s ease;
+        }
+
         .portfolio-demo-section {
             display: flex;
             flex-direction: column;
@@ -532,7 +539,12 @@
 
             <article class="portfolio-card portfolio-card--featured rounded-2xl p-8 lg:col-span-2">
 
-                <div class="portfolio-demo-section smart-supply-demo-row">
+                <div
+                    id="demo-smart-supply-agent"
+                    class="portfolio-demo-section smart-supply-demo-row"
+                    data-demo-slugs="smart-supply-agent,smart-supply"
+                    data-demo-health="https://smart-supply-agent.kayakconsultingusa.com/health"
+                >
 
                     <div class="portfolio-demo-copy">
 
@@ -642,7 +654,12 @@
 
 
 
-                <div class="portfolio-demo-divider portfolio-demo-section classifier-demo-row">
+                <div
+                    id="demo-classifier"
+                    class="portfolio-demo-divider portfolio-demo-section classifier-demo-row"
+                    data-demo-slugs="classifier,customer-message-classifier"
+                    data-demo-health="https://classifier.kayakconsultingusa.com/health"
+                >
 
                     <div class="portfolio-demo-copy">
 
@@ -760,7 +777,12 @@
 
 
 
-                <div class="portfolio-demo-divider portfolio-demo-section agnostic-search-demo-row">
+                <div
+                    id="demo-agnostic-search-gateway"
+                    class="portfolio-demo-divider portfolio-demo-section agnostic-search-demo-row"
+                    data-demo-slugs="agnostic-search-gateway,agnostic-search,search-gateway"
+                    data-demo-health="https://agnostic-search-gateway.kayakconsultingusa.com/health"
+                >
 
                     <div class="portfolio-demo-copy">
 
@@ -1203,6 +1225,7 @@
     form.addEventListener("submit", handleSubmit);
 
     const DEMO_WAKE_TIMEOUT_MS = 25000;
+    const IS_LOCAL_HOST = ["localhost", "127.0.0.1"].includes(window.location.hostname);
 
     async function wakeDemo(healthUrl) {
         const controller = new AbortController();
@@ -1219,6 +1242,61 @@
         } finally {
             clearTimeout(timer);
         }
+    }
+
+    function findDemoSectionBySlug(slug) {
+        const normalized = slug.toLowerCase();
+        return Array.from(document.querySelectorAll("[data-demo-slugs]")).find((section) =>
+            section.dataset.demoSlugs
+                .split(",")
+                .map((value) => value.trim().toLowerCase())
+                .includes(normalized)
+        );
+    }
+
+    function warmDemoInBackground(section) {
+        const healthUrl = section.dataset.demoHealth;
+        const storageKey = `demo-warm-${section.id}`;
+        if (!healthUrl || IS_LOCAL_HOST || sessionStorage.getItem(storageKey)) {
+            return;
+        }
+        sessionStorage.setItem(storageKey, "1");
+        void wakeDemo(healthUrl);
+    }
+
+    function handlePortfolioDeepLink() {
+        const rawHash = window.location.hash.replace(/^#/, "");
+        if (!rawHash.startsWith("portfolio")) {
+            return;
+        }
+
+        if (rawHash === "portfolio") {
+            document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth", block: "start" });
+            return;
+        }
+
+        const match = rawHash.match(/^portfolio\/(.+)$/);
+        if (!match) {
+            return;
+        }
+
+        const section = findDemoSectionBySlug(match[1]);
+        if (!section) {
+            document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth", block: "start" });
+            return;
+        }
+
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+        section.classList.add("demo-deep-link-highlight");
+        window.setTimeout(() => section.classList.remove("demo-deep-link-highlight"), 2500);
+        warmDemoInBackground(section);
+    }
+
+    window.addEventListener("hashchange", handlePortfolioDeepLink);
+    if (window.location.hash.startsWith("#portfolio")) {
+        window.addEventListener("load", () => {
+            window.requestAnimationFrame(handlePortfolioDeepLink);
+        });
     }
 
     document.querySelectorAll(".demo-launch-btn").forEach((button) => {
