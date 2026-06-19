@@ -848,43 +848,73 @@
 
                         <p class="text-slate-500 uppercase tracking-widest text-[0.65rem] mb-3 px-1">Live UI · semantic knowledge search</p>
 
-                        <div class="flex flex-1 flex-col justify-center gap-4 rounded-lg border border-slate-700/80 bg-slate-900/60 p-6 text-sm text-gray-400">
+                        <div class="classifier-carousel" data-portfolio-carousel>
 
-                            <p class="text-zinc-300 font-medium">Three workspaces in the live sandbox:</p>
+                            <div class="classifier-carousel-viewport">
 
-                            <ul class="space-y-3">
+                                <div class="classifier-carousel-track" data-carousel-track>
 
-                                <li class="flex gap-3">
+                                    <figure class="classifier-carousel-slide">
 
-                                    <span class="text-blue-400 shrink-0" aria-hidden="true">⌕</span>
+                                        <img src="demos/agnostic-search-gateway/asg-1.png" alt="Agnostic Search Gateway how it works section explaining semantic search and ingestion" width="1280" height="720" loading="eager" />
 
-                                    <span><strong class="text-zinc-200">Search Engine</strong> — natural-language queries across indexed IT tickets and purchasing contracts.</span>
+                                        <figcaption>How it works</figcaption>
 
-                                </li>
+                                    </figure>
 
-                                <li class="flex gap-3">
+                                    <figure class="classifier-carousel-slide">
 
-                                    <span class="text-blue-400 shrink-0" aria-hidden="true">↓</span>
+                                        <img src="demos/agnostic-search-gateway/asg-2.png" alt="Agnostic Search Gateway data ingestion workspace for bulk and single-record ingest" width="1280" height="720" loading="lazy" />
 
-                                    <span><strong class="text-zinc-200">Data Ingestion</strong> — bulk or single-record ingest with curated searchable text.</span>
+                                        <figcaption>Ingestion</figcaption>
 
-                                </li>
+                                    </figure>
 
-                                <li class="flex gap-3">
+                                    <figure class="classifier-carousel-slide">
 
-                                    <span class="text-blue-400 shrink-0" aria-hidden="true">☰</span>
+                                        <img src="demos/agnostic-search-gateway/asg-3.png" alt="Agnostic Search Gateway knowledge base explorer showing stored records and payloads" width="1280" height="720" loading="lazy" />
 
-                                    <span><strong class="text-zinc-200">Knowledge Base Explorer</strong> — audit stored records, vectors, and source payloads.</span>
+                                        <figcaption>Data</figcaption>
 
-                                </li>
+                                    </figure>
 
-                            </ul>
+                                    <figure class="classifier-carousel-slide">
 
-                            <p class="text-xs text-slate-500 pt-2 border-t border-slate-800">
+                                        <img src="demos/agnostic-search-gateway/asg-4.png" alt="Agnostic Search Gateway semantic search query input across indexed knowledge" width="1280" height="720" loading="lazy" />
 
-                                Screenshots coming soon — open the live demo to explore the full UI.
+                                        <figcaption>Semantic Search</figcaption>
 
-                            </p>
+                                    </figure>
+
+                                    <figure class="classifier-carousel-slide">
+
+                                        <img src="demos/agnostic-search-gateway/asg-5.png" alt="Agnostic Search Gateway search results ranked by cosine similarity" width="1280" height="720" loading="lazy" />
+
+                                        <figcaption>Results</figcaption>
+
+                                    </figure>
+
+                                </div>
+
+                            </div>
+
+                            <button type="button" class="classifier-carousel-btn classifier-carousel-btn--prev" data-carousel-prev aria-label="Previous screenshot">‹</button>
+
+                            <button type="button" class="classifier-carousel-btn classifier-carousel-btn--next" data-carousel-next aria-label="Next screenshot">›</button>
+
+                            <div class="classifier-carousel-dots" data-carousel-dots role="tablist" aria-label="Agnostic Search Gateway screenshots">
+
+                                <button type="button" class="classifier-carousel-dot is-active" data-carousel-goto="0" role="tab" aria-selected="true">How it works</button>
+
+                                <button type="button" class="classifier-carousel-dot" data-carousel-goto="1" role="tab" aria-selected="false">Ingestion</button>
+
+                                <button type="button" class="classifier-carousel-dot" data-carousel-goto="2" role="tab" aria-selected="false">Data</button>
+
+                                <button type="button" class="classifier-carousel-dot" data-carousel-goto="3" role="tab" aria-selected="false">Semantic Search</button>
+
+                                <button type="button" class="classifier-carousel-dot" data-carousel-goto="4" role="tab" aria-selected="false">Results</button>
+
+                            </div>
 
                         </div>
 
