@@ -16,6 +16,9 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+    <link rel="dns-prefetch" href="https://agnostic-search-gateway.kayakconsultingusa.com">
+    <link rel="preconnect" href="https://agnostic-search-gateway.kayakconsultingusa.com" crossorigin>
+
     <style>
 
         body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; scroll-behavior: smooth; }
@@ -781,7 +784,8 @@
                     id="demo-agnostic-search-gateway"
                     class="portfolio-demo-divider portfolio-demo-section agnostic-search-demo-row"
                     data-demo-slugs="agnostic-search-gateway,agnostic-search,search-gateway"
-                    data-demo-health="https://agnostic-search-gateway.kayakconsultingusa.com/health"
+                    data-demo-health="https://agnostic-search-gateway.kayakconsultingusa.com/api/health"
+                    data-demo-warm-urls="https://agnostic-search-gateway.kayakconsultingusa.com/api/health/db"
                 >
 
                     <div class="portfolio-demo-copy">
@@ -830,7 +834,7 @@
 
                         </div>
 
-                        <a href="https://agnostic-search-gateway.kayakconsultingusa.com/" data-demo-health="https://agnostic-search-gateway.kayakconsultingusa.com/health" target="_blank" rel="noopener noreferrer" class="demo-launch-btn inline-flex w-fit items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-500 transition disabled:pointer-events-none">
+                        <a href="https://agnostic-search-gateway.kayakconsultingusa.com/" data-demo-health="https://agnostic-search-gateway.kayakconsultingusa.com/api/health" data-demo-warm-urls="https://agnostic-search-gateway.kayakconsultingusa.com/api/health/db" target="_blank" rel="noopener noreferrer" class="demo-launch-btn inline-flex w-fit items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-500 transition disabled:pointer-events-none">
 
                             Open Live Demo
 
@@ -1254,14 +1258,35 @@
         );
     }
 
+    function getWarmUrls(element) {
+        const urls = [];
+        if (element.dataset.demoHealth) {
+            urls.push(element.dataset.demoHealth);
+        }
+        if (element.dataset.demoWarmUrls) {
+            urls.push(
+                ...element.dataset.demoWarmUrls
+                    .split(",")
+                    .map((value) => value.trim())
+                    .filter(Boolean)
+            );
+        }
+        return [...new Set(urls)];
+    }
+
     function warmDemoInBackground(section) {
-        const healthUrl = section.dataset.demoHealth;
+        const urls = getWarmUrls(section);
         const storageKey = `demo-warm-${section.id}`;
-        if (!healthUrl || IS_LOCAL_HOST || sessionStorage.getItem(storageKey)) {
+        if (!urls.length || IS_LOCAL_HOST || sessionStorage.getItem(storageKey)) {
             return;
         }
         sessionStorage.setItem(storageKey, "1");
-        void wakeDemo(healthUrl);
+        urls.forEach((url) => void wakeDemo(url));
+    }
+
+    async function wakeDemoSection(element) {
+        const urls = getWarmUrls(element);
+        await Promise.all(urls.map((url) => wakeDemo(url)));
     }
 
     function handlePortfolioDeepLink() {
@@ -1299,6 +1324,20 @@
         });
     }
 
+    if (!IS_LOCAL_HOST) {
+        const demoWarmObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        warmDemoInBackground(entry.target);
+                    }
+                });
+            },
+            { rootMargin: "240px 0px", threshold: 0.12 }
+        );
+        document.querySelectorAll("[data-demo-slugs]").forEach((section) => demoWarmObserver.observe(section));
+    }
+
     document.querySelectorAll(".demo-launch-btn").forEach((button) => {
         const defaultLabel = button.innerHTML.trim();
 
@@ -1309,8 +1348,9 @@
             }
 
             const demoUrl = button.href;
-            const healthUrl = button.dataset.demoHealth;
-            if (!healthUrl) {
+            const warmTarget = button.closest("[data-demo-slugs]") || button;
+            const warmUrls = getWarmUrls(warmTarget);
+            if (!warmUrls.length) {
                 window.open(demoUrl, "_blank", "noopener,noreferrer");
                 return;
             }
@@ -1319,7 +1359,7 @@
             button.setAttribute("aria-busy", "true");
             button.innerHTML = '<span class="demo-launch-spinner" aria-hidden="true"></span><span>Starting demo…</span>';
 
-            await wakeDemo(healthUrl);
+            await wakeDemoSection(warmTarget);
             window.open(demoUrl, "_blank", "noopener,noreferrer");
 
             button.disabled = false;
