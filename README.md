@@ -4,6 +4,8 @@ Run local: `npm run dev` → http://localhost:8500
 
 Open these before a live demo so the portfolio pings health in the background (once per tab session). Agnostic Search also hits `/api/health/db` to warm the DB pool.
 
+On production, any visitor whose IP does **not** start with `190.137` triggers automatic dyno warm-up for all three demos on page load. Your home/office network is excluded.
+
 | Demo | Link |
 |------|------|
 | Smart Supply | https://kayakconsultingusa.com/#portfolio/smart-supply |
