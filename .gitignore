@@ -1,6 +1,10 @@
 .DS_Store
 .idea/
-.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 demos/.DS_Store
 ma
 node_modules/
