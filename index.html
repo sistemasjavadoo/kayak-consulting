@@ -601,7 +601,19 @@
 
                         <p class="text-gray-400 text-sm leading-relaxed mb-4">
 
-                            Procurement sandbox with a FastAPI agent behind the UI. It reads stock levels, vendor metrics, and free-text risk notes, then recommends internal stock, external buy, or hold. A human confirms before anything is committed.
+                            A customer order mixes quantity, deadline, in-house stock, and several suppliers with different prices and lead times. On top of that you have shifting context: a hurricane near a port, higher rates, customs holdups. Working out the best mix by hand is slow and easy to get wrong.
+
+                        </p>
+
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+
+                            The demo captures that context as free-text notes per supplier (a POC shortcut). The agent weighs structured data and those notes together: warehouse stock first, then one or more external suppliers when needed, respecting delivery dates.
+
+                        </p>
+
+                        <p class="text-gray-500 text-xs mb-4">
+
+                            You get a quote that protects margin while meeting the deadline, with the reasoning spelled out. A human approves before anything ships.
 
                         </p>
 
@@ -728,25 +740,19 @@
 
                         <p class="text-gray-400 text-sm leading-relaxed mb-4">
 
-                            Classifies inbound customer messages by intent (complaint, sales, shipping) and suggests a department plus a short reply. Each result includes a confidence score.
+                            Incoming messages do not arrive labeled. Someone has to read each one, pick the right queue (complaint, sales, shipping), and only then can the customer get a proper reply.
 
                         </p>
 
-                        <ul class="text-gray-400 text-sm space-y-1.5 mb-4 list-disc pl-5">
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
 
-                            <li>Zero-shot. No training set required.</li>
+                            A FastAPI service classifies intent, suggests a department, and drafts a short reply. Same model for web, WhatsApp, email, and SMS; no training dataset required. Live today on the web API; WhatsApp handlers are in the repo.
 
-                            <li>One model for web, WhatsApp, email, and SMS.</li>
-
-                            <li>Live today: web API (WhatsApp handlers in the repo).</li>
-
-                            <li>Classification runs in real time with scores on every response.</li>
-
-                        </ul>
+                        </p>
 
                         <p class="text-gray-500 text-xs mb-4">
 
-                            Saves hours of manual dispatch work for customer support teams.
+                            Less time on manual triage and faster first responses: every message returns a department, suggested reply, and confidence score.
 
                         </p>
 
@@ -864,23 +870,19 @@
 
                         <p class="text-gray-400 text-sm leading-relaxed mb-4">
 
-                            Semantic search over records from Jira, SAP, ServiceNow, and similar systems. Structured payloads stay in JSONB; searchable text is curated separately. Queries use cosine similarity in pgvector, not keyword match.
+                            Exact-keyword search breaks down on incidents and contracts. You cannot remember how a case was worded last time, or the new report sounds different even when the issue is the same.
 
                         </p>
 
-                        <ul class="text-gray-400 text-sm space-y-1.5 mb-4 list-disc pl-5">
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
 
-                            <li>Curated <span class="text-zinc-300">searchable_text</span> lives apart from raw source payloads in JSONB.</li>
+                            Ingest records from Jira, SAP, ServiceNow, and similar systems, then search the history in plain language. Vectors live in pgvector; lookups are SQL and cosine math, not an LLM call every time.
 
-                            <li>Vectors in pgvector; department schemas stay as-is.</li>
-
-                            <li>Query time is SQL and vector math only. No LLM on every lookup.</li>
-
-                        </ul>
+                        </p>
 
                         <p class="text-gray-500 text-xs mb-4">
 
-                            POC for IT incidents and purchasing contracts. Same embedding size with LocalAI locally and OpenAI in prod.
+                            You surface similar past cases even when the wording changes. The POC covers IT incidents and purchasing contracts.
 
                         </p>
 
@@ -1020,25 +1022,25 @@
 
                         <p class="text-gray-400 text-sm leading-relaxed mb-4">
 
-                            Production alerts often describe the condition, not the stack trace. This demo walks through the full path: a Spring Boot app tags an error and sends it to New Relic, a Python agent picks up the webhook, looks for prior incidents, fetches the file from GitHub, runs LLM analysis, and creates or updates a Jira ticket. Ticket rules and dedup stay in code; the model only explains the failure.
+                            Production alerts often name the condition, not the failing line. On-call opens a ticket and starts from scratch.
 
                         </p>
 
-                        <ul class="text-gray-400 text-sm space-y-1.5 mb-4 list-disc pl-5">
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
 
-                            <li><span class="text-zinc-300">Tagged at source.</span> Repo, file, line, and exception class travel with the error. The client is a stand-in for any service in your fleet.</li>
+                            A Spring Boot app tags errors and sends them to New Relic. A Python agent handles the webhook, enriches thin payloads via API, matches similar incidents in pgvector, pulls source from GitHub, runs LLM analysis, and creates or updates Jira. Dedup and routing rules stay in code.
 
-                            <li><span class="text-zinc-300">Standard NR webhook.</span> No custom payload required; the agent can call New Relic’s API when the alert body is thin.</li>
-
-                            <li><span class="text-zinc-300">Incident memory.</span> pgvector matches similar errors; open Jira tickets get an append log instead of a duplicate.</li>
-
-                            <li><span class="text-zinc-300">Human triage.</span> New tickets land in PENDING until someone on the team acts.</li>
-
-                        </ul>
+                        </p>
 
                         <p class="text-gray-500 text-xs mb-4">
 
-                            Two apps, one story: the client simulates failures; the agent is what you would deploy once for the whole company.
+                            Faster response and resolution: the ticket already carries repo, file, analysis, and prior context so nobody rebuilds the story by hand. One deployment for the whole fleet, customizable to your stack, without bolting on a separate closed product per service.
+
+                        </p>
+
+                        <p class="text-gray-500 text-xs mb-4">
+
+                            Two apps in the demo: the client injects faults; the agent is what you would run once for the company.
 
                         </p>
 
