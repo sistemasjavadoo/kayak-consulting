@@ -1067,17 +1067,83 @@
 
                         <p class="text-slate-500 uppercase tracking-widest text-[0.65rem] mb-3 px-1">Live UI · New Relic → agent → Jira</p>
 
-                        <div class="flex flex-1 min-h-[280px] flex-col items-center justify-center gap-3 rounded-lg border border-dashed border-slate-700/80 bg-slate-900/50 px-6 py-10 text-center">
+                        <div class="classifier-carousel" data-portfolio-carousel>
 
-                            <p class="text-sm font-medium text-slate-300">Interactive walkthrough</p>
+                            <div class="classifier-carousel-viewport">
 
-                            <p class="text-xs text-slate-500 max-w-sm leading-relaxed">
+                                <div class="classifier-carousel-track" data-carousel-track>
 
-                                Trigger a fault in the client (NPE, timeout, OOM, and others), give New Relic a minute to fire, then open the agent dashboard for the webhook run, pipeline log, LLM output, and Jira link. Screenshots coming soon.
+                                    <figure class="classifier-carousel-slide">
 
-                            </p>
+                                        <img src="demos/ai-sre-client-agent/ai-sre-client-1.png" alt="AI SRE Client fault sandbox after triggering NPE and out-of-range errors" width="1280" height="720" loading="eager" />
 
-                            <p class="text-[0.65rem] text-slate-600 font-mono mt-2">client → New Relic → agent → GitHub + Jira</p>
+                                        <figcaption>Inject faults</figcaption>
+
+                                    </figure>
+
+                                    <figure class="classifier-carousel-slide">
+
+                                        <img src="demos/ai-sre-client-agent/ai-sre-client-2.png" alt="AI SRE Client with additional production-like failure scenarios triggered" width="1280" height="720" loading="lazy" />
+
+                                        <figcaption>More failure modes</figcaption>
+
+                                    </figure>
+
+                                    <figure class="classifier-carousel-slide">
+
+                                        <img src="demos/ai-sre-client-agent/new-relic-3.png" alt="New Relic issue/alert that notifies the AI SRE agent webhook" width="1280" height="720" loading="lazy" />
+
+                                        <figcaption>Alert fires</figcaption>
+
+                                    </figure>
+
+                                    <figure class="classifier-carousel-slide">
+
+                                        <img src="demos/ai-sre-client-agent/ai-sre-agent-4.png" alt="AI SRE Agent run explorer with pipeline log and LLM analysis" width="1280" height="720" loading="lazy" />
+
+                                        <figcaption>Agent run</figcaption>
+
+                                    </figure>
+
+                                    <figure class="classifier-carousel-slide">
+
+                                        <img src="demos/ai-sre-client-agent/github-bug-code-5.png" alt="GitHub source file the agent pulls for developer context" width="1280" height="720" loading="lazy" />
+
+                                        <figcaption>Source in GitHub</figcaption>
+
+                                    </figure>
+
+                                    <figure class="classifier-carousel-slide">
+
+                                        <img src="demos/ai-sre-client-agent/jira-ticket-6.png" alt="Jira ticket with root cause, file, and line so the dev does not start from scratch" width="1280" height="720" loading="lazy" />
+
+                                        <figcaption>Enriched ticket</figcaption>
+
+                                    </figure>
+
+                                </div>
+
+                            </div>
+
+                            <button type="button" class="classifier-carousel-btn classifier-carousel-btn--prev" data-carousel-prev aria-label="Previous screenshot">‹</button>
+
+                            <button type="button" class="classifier-carousel-btn classifier-carousel-btn--next" data-carousel-next aria-label="Next screenshot">›</button>
+
+                            <div class="classifier-carousel-dots" data-carousel-dots role="tablist" aria-label="AI SRE Incident Pipeline screenshots">
+
+                                <button type="button" class="classifier-carousel-dot is-active" data-carousel-goto="0" role="tab" aria-selected="true">Inject faults</button>
+
+                                <button type="button" class="classifier-carousel-dot" data-carousel-goto="1" role="tab" aria-selected="false">Failure modes</button>
+
+                                <button type="button" class="classifier-carousel-dot" data-carousel-goto="2" role="tab" aria-selected="false">New Relic</button>
+
+                                <button type="button" class="classifier-carousel-dot" data-carousel-goto="3" role="tab" aria-selected="false">Agent</button>
+
+                                <button type="button" class="classifier-carousel-dot" data-carousel-goto="4" role="tab" aria-selected="false">GitHub</button>
+
+                                <button type="button" class="classifier-carousel-dot" data-carousel-goto="5" role="tab" aria-selected="false">Jira</button>
+
+                            </div>
 
                         </div>
 
