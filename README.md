@@ -15,7 +15,7 @@ On production, any visitor whose IP does **not** start with `190.137` triggers a
 
 Slugs match `data-demo-slugs` on each section. Scrolling the demo into view triggers the same warm-up. **Open Live Demo** (and **Trigger a fault** / **Agent dashboard** on AI SRE) waits for health before opening the app tab.
 
-Each of the first three live demos has a **Watch on LinkedIn** link to the video walkthrough (opens in a new tab, no dyno warm-up). AI SRE LinkedIn video link will be added when the post is published.
+Each live demo has a **Watch on LinkedIn** link to the video walkthrough (opens in a new tab, no dyno warm-up). AI SRE: [LinkedIn post](https://www.linkedin.com/posts/kayak-consulting-llc_sre-oncall-newrelic-activity-7483128419896111104-ghsV).
 
 ### AI SRE (two apps)
 
