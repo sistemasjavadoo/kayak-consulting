@@ -292,9 +292,11 @@
             display: block;
             width: 100%;
             height: auto;
+            min-height: 220px;
             max-height: min(52vh, 520px);
             object-fit: contain;
             object-position: top center;
+            background: #09090b;
         }
 
         .classifier-carousel-slide figcaption {
@@ -650,7 +652,7 @@
 
                                     <figure class="classifier-carousel-slide">
 
-                                        <img src="demos/smart-supply-agent/smart-supply-agent-2.png" alt="SmartSupply Agent how it works section explaining the procurement workflow" width="1280" height="720" loading="lazy" />
+                                        <img src="demos/smart-supply-agent/smart-supply-agent-2.png" alt="SmartSupply Agent inventory stock, margin, and suppliers market table" width="1280" height="720" loading="eager" />
 
                                         <figcaption>Context</figcaption>
 
@@ -658,7 +660,7 @@
 
                                     <figure class="classifier-carousel-slide">
 
-                                        <img src="demos/smart-supply-agent/smart-supply-agent-3.png" alt="SmartSupply Agent suppliers table and AI order processing result" width="1280" height="720" loading="lazy" />
+                                        <img src="demos/smart-supply-agent/smart-supply-agent-3.png" alt="SmartSupply Agent customer order panel and Process Order with AI Agent action" width="1280" height="720" loading="eager" />
 
                                         <figcaption>Process order</figcaption>
 
@@ -666,7 +668,7 @@
 
                                     <figure class="classifier-carousel-slide">
 
-                                        <img src="demos/smart-supply-agent/smart-supply-agent-4.png" alt="SmartSupply Agent reasoning log and human-in-the-loop confirmation" width="1280" height="720" loading="lazy" />
+                                        <img src="demos/smart-supply-agent/smart-supply-agent-4.png" alt="SmartSupply Agent reasoning log and human-in-the-loop confirmation" width="1280" height="720" loading="eager" />
 
                                         <figcaption>Agent output</figcaption>
 
@@ -1703,10 +1705,20 @@
         function goTo(i) {
             index = (i + total) % total;
             track.style.transform = `translateX(-${index * 100}%)`;
+            const slides = track.querySelectorAll(".classifier-carousel-slide");
+            const active = slides[index];
+            active?.querySelectorAll("img").forEach((img) => {
+                if (img.getAttribute("loading") === "lazy") {
+                    img.setAttribute("loading", "eager");
+                }
+                if (!img.complete && img.dataset.src) {
+                    img.src = img.dataset.src;
+                }
+            });
             dots.forEach((dot, n) => {
-                const active = n === index;
-                dot.classList.toggle("is-active", active);
-                dot.setAttribute("aria-selected", active ? "true" : "false");
+                const activeDot = n === index;
+                dot.classList.toggle("is-active", activeDot);
+                dot.setAttribute("aria-selected", activeDot ? "true" : "false");
             });
         }
 
