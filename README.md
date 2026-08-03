@@ -8,10 +8,10 @@ On production, any visitor whose IP does **not** start with `190.137` triggers a
 
 | Demo | Link |
 |------|------|
+| AI SRE | https://kayakconsultingusa.com/#portfolio/ai-sre |
 | Smart Supply | https://kayakconsultingusa.com/#portfolio/smart-supply |
 | Classifier | https://kayakconsultingusa.com/#portfolio/classifier |
 | Agnostic Search | https://kayakconsultingusa.com/#portfolio/agnostic-search |
-| AI SRE | https://kayakconsultingusa.com/#portfolio/ai-sre |
 
 Slugs match `data-demo-slugs` on each section. Scrolling the demo into view triggers the same warm-up. **Open Live Demo** (and **Trigger a fault** / **Agent dashboard** on AI SRE) waits for health before opening the app tab.
 
