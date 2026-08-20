@@ -164,18 +164,32 @@
             align-items: center;
             gap: 0.5rem;
             border-radius: 0.5rem;
-            border: 1px solid rgba(10, 102, 194, 0.45);
-            background: rgba(10, 102, 194, 0.12);
+            border: 1px solid transparent;
+            background: #2563eb;
             padding: 0.625rem 1.25rem;
             font-size: 0.875rem;
             font-weight: 600;
-            color: #93c5fd;
+            color: #fff;
             transition: background 0.2s ease, border-color 0.2s ease;
         }
 
         .demo-linkedin-btn:hover {
-            background: rgba(10, 102, 194, 0.22);
-            border-color: rgba(10, 102, 194, 0.7);
+            background: #1d4ed8;
+            border-color: transparent;
+            color: #fff;
+        }
+
+        .demo-launch-btn.demo-launch-btn--secondary,
+        a.demo-launch-btn:not(.demo-launch-btn--keep-primary) {
+            background: transparent;
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            color: #e2e8f0;
+        }
+
+        a.demo-launch-btn:not(.demo-launch-btn--keep-primary):hover {
+            background: rgba(51, 65, 85, 0.65);
+            border-color: rgba(148, 163, 184, 0.65);
+            color: #fff;
         }
 
         .demo-launch-btn:disabled {
@@ -199,6 +213,76 @@
 
         @keyframes demo-launch-spin {
             to { transform: rotate(360deg); }
+        }
+
+        .demo-request-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 80;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem;
+            background: rgba(2, 6, 23, 0.72);
+        }
+
+        .demo-request-modal.is-open {
+            display: flex;
+        }
+
+        .demo-request-modal__card {
+            width: min(100%, 26rem);
+            border-radius: 0.75rem;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: #0f172a;
+            padding: 1.35rem 1.4rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+        }
+
+        .demo-request-modal__card p {
+            margin: 0 0 1.1rem;
+            color: #e2e8f0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .demo-request-modal__actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .demo-request-modal__actions a,
+        .demo-request-modal__actions button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            padding: 0.55rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .demo-request-modal__primary {
+            background: #0a66c2;
+            color: #fff;
+            border: none;
+            text-decoration: none;
+        }
+
+        .demo-request-modal__primary:hover {
+            background: #0958a8;
+        }
+
+        .demo-request-modal__close {
+            background: transparent;
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            color: #e2e8f0;
+        }
+
+        .demo-request-modal__close:hover {
+            background: rgba(51, 65, 85, 0.65);
         }
 
         @keyframes linkedin-pulse {
@@ -629,7 +713,15 @@
 
                         <div class="demo-cta-row">
 
-                            <a href="https://ai-sre-client.kayakconsultingusa.com/" data-demo-health="https://ai-sre-client.kayakconsultingusa.com/api/health" target="_blank" rel="noopener noreferrer" class="demo-launch-btn inline-flex w-fit items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-500 transition disabled:pointer-events-none">
+                            <a href="https://www.linkedin.com/posts/kayak-consulting-llc_sre-oncall-newrelic-activity-7483128419896111104-ghsV" target="_blank" rel="noopener noreferrer" class="demo-linkedin-btn">
+
+                                Watch on LinkedIn
+
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 114.126 0 2.063 2.063 0 01-2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+
+                            </a>
+
+                            <a href="https://ai-sre-client.kayakconsultingusa.com/" data-demo-health="https://ai-sre-client.kayakconsultingusa.com/api/health" target="_blank" rel="noopener noreferrer" class="demo-launch-btn demo-launch-btn--secondary inline-flex w-fit items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition disabled:pointer-events-none">
 
                                 Trigger a fault
 
@@ -642,14 +734,6 @@
                                 Agent dashboard
 
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-
-                            </a>
-
-                            <a href="https://www.linkedin.com/posts/kayak-consulting-llc_sre-oncall-newrelic-activity-7483128419896111104-ghsV" target="_blank" rel="noopener noreferrer" class="demo-linkedin-btn">
-
-                                Watch on LinkedIn
-
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 114.126 0 2.063 2.063 0 01-2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
 
                             </a>
 
@@ -796,19 +880,19 @@
 
                         <div class="demo-cta-row">
 
-                            <a href="https://smart-supply-agent.kayakconsultingusa.com/" data-demo-health="https://smart-supply-agent.kayakconsultingusa.com/health" target="_blank" rel="noopener noreferrer" class="demo-launch-btn inline-flex w-fit items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-500 transition disabled:pointer-events-none">
-
-                                Open Live Demo
-
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-
-                            </a>
-
                             <a href="https://www.linkedin.com/posts/kayak-consulting-llc_softwarearchitecture-artificialintelligence-activity-7468802805177143296-QXxC/" target="_blank" rel="noopener noreferrer" class="demo-linkedin-btn">
 
                                 Watch on LinkedIn
 
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 114.126 0 2.063 2.063 0 01-2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+
+                            </a>
+
+                            <a href="https://smart-supply-agent.kayakconsultingusa.com/" data-demo-health="https://smart-supply-agent.kayakconsultingusa.com/health" target="_blank" rel="noopener noreferrer" class="demo-launch-btn demo-launch-btn--secondary inline-flex w-fit items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition disabled:pointer-events-none">
+
+                                Open Live Demo
+
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
 
                             </a>
 
@@ -890,7 +974,6 @@
                     id="demo-classifier"
                     class="portfolio-demo-divider portfolio-demo-section classifier-demo-row"
                     data-demo-slugs="classifier,customer-message-classifier"
-                    data-demo-health="https://classifier.kayakconsultingusa.com/health"
                 >
 
                     <div class="portfolio-demo-copy">
@@ -935,19 +1018,19 @@
 
                         <div class="demo-cta-row">
 
-                            <a href="https://classifier.kayakconsultingusa.com/" data-demo-health="https://classifier.kayakconsultingusa.com/health" target="_blank" rel="noopener noreferrer" class="demo-launch-btn inline-flex w-fit items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-500 transition disabled:pointer-events-none">
-
-                                Open Live Demo
-
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-
-                            </a>
-
                             <a href="https://www.linkedin.com/posts/kayak-consulting-llc_softwareengineering-fastapi-nlp-activity-7466167471171977216-4JtG/" target="_blank" rel="noopener noreferrer" class="demo-linkedin-btn">
 
                                 Watch on LinkedIn
 
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 114.126 0 2.063 2.063 0 01-2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+
+                            </a>
+
+                            <a href="https://classifier.kayakconsultingusa.com/" data-demo-request-contact="true" class="demo-launch-btn demo-launch-btn--secondary inline-flex w-fit items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition disabled:pointer-events-none">
+
+                                Open Live Demo
+
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
 
                             </a>
 
@@ -1019,8 +1102,6 @@
                     id="demo-agnostic-search-gateway"
                     class="portfolio-demo-divider portfolio-demo-section agnostic-search-demo-row"
                     data-demo-slugs="agnostic-search-gateway,agnostic-search,search-gateway"
-                    data-demo-health="https://agnostic-search-gateway.kayakconsultingusa.com/api/health"
-                    data-demo-warm-urls="https://agnostic-search-gateway.kayakconsultingusa.com/api/health/db"
                 >
 
                     <div class="portfolio-demo-copy">
@@ -1067,19 +1148,19 @@
 
                         <div class="demo-cta-row">
 
-                            <a href="https://agnostic-search-gateway.kayakconsultingusa.com/" data-demo-health="https://agnostic-search-gateway.kayakconsultingusa.com/api/health" data-demo-warm-urls="https://agnostic-search-gateway.kayakconsultingusa.com/api/health/db" target="_blank" rel="noopener noreferrer" class="demo-launch-btn inline-flex w-fit items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-500 transition disabled:pointer-events-none">
-
-                                Open Live Demo
-
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-
-                            </a>
-
                             <a href="https://www.linkedin.com/feed/update/urn:li:activity:7473817228446994433/" target="_blank" rel="noopener noreferrer" class="demo-linkedin-btn">
 
                                 Watch on LinkedIn
 
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 114.126 0 2.063 2.063 0 01-2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+
+                            </a>
+
+                            <a href="https://agnostic-search-gateway.kayakconsultingusa.com/" data-demo-request-contact="true" class="demo-launch-btn demo-launch-btn--secondary inline-flex w-fit items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition disabled:pointer-events-none">
+
+                                Open Live Demo
+
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
 
                             </a>
 
@@ -1415,7 +1496,15 @@
 
 </a>
 
-
+<div id="demo-request-modal" class="demo-request-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="demo-request-title">
+    <div class="demo-request-modal__card">
+        <p id="demo-request-title">To enable this demo, send a LinkedIn direct message to Federico Autalan.</p>
+        <div class="demo-request-modal__actions">
+            <button type="button" id="demo-request-linkedin" class="demo-request-modal__primary">Message on LinkedIn</button>
+            <button type="button" class="demo-request-modal__close" data-demo-request-close>Close</button>
+        </div>
+    </div>
+</div>
 
 <script>
 
@@ -1597,6 +1686,11 @@
                 return;
             }
 
+            if (button.dataset.demoRequestContact === "true") {
+                openDemoRequestModal();
+                return;
+            }
+
             const demoUrl = button.href;
             const warmTarget = button.closest("[data-demo-slugs]") || button;
             const warmUrls = getWarmUrls(warmTarget);
@@ -1617,6 +1711,43 @@
             button.removeAttribute("aria-busy");
             button.innerHTML = defaultLabel;
         });
+    });
+
+    const demoRequestModal = document.getElementById("demo-request-modal");
+    const LINKEDIN_PROFILE_URL = "https://www.linkedin.com/in/federico-a-8845368/";
+
+    function openDemoRequestModal() {
+        if (!demoRequestModal) {
+            return;
+        }
+        demoRequestModal.classList.add("is-open");
+        demoRequestModal.setAttribute("aria-hidden", "false");
+        document.getElementById("demo-request-linkedin")?.focus();
+    }
+
+    function closeDemoRequestModal() {
+        if (!demoRequestModal) {
+            return;
+        }
+        demoRequestModal.classList.remove("is-open");
+        demoRequestModal.setAttribute("aria-hidden", "true");
+    }
+
+    demoRequestModal?.addEventListener("click", (event) => {
+        if (event.target === demoRequestModal || event.target.closest("[data-demo-request-close]")) {
+            closeDemoRequestModal();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && demoRequestModal?.classList.contains("is-open")) {
+            closeDemoRequestModal();
+        }
+    });
+
+    document.getElementById("demo-request-linkedin")?.addEventListener("click", () => {
+        window.open(LINKEDIN_PROFILE_URL, "_blank", "noopener,noreferrer");
+        closeDemoRequestModal();
     });
 
     document.querySelectorAll("[data-portfolio-carousel]").forEach((root) => {
@@ -1659,8 +1790,6 @@
     });
 
 </script>
-
-
 
 </body>
 
