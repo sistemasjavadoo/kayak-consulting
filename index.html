@@ -621,9 +621,9 @@
 
 <header data-home-section class="hero-shell">
     <div class="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-[auto_1fr] md:items-center md:gap-16 md:py-24">
-        <img src="my_profile.jpg" alt="Federico Autalan" class="hero-photo mx-auto md:mx-0" width="224" height="224">
+        <img src="my_profile.jpg" alt="Federico Autalan" class="hero-photo mx-0" width="224" height="224">
 
-        <div class="text-center md:text-left">
+        <div class="text-left">
             <p class="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
                 Backend · Remote · US LLC (C2C / B2B) · Overlap EST / PST / EU
             </p>
@@ -632,11 +632,11 @@
                 Federico Autalan
             </h1>
 
-            <p class="mt-4 max-w-xl text-lg leading-relaxed text-[var(--muted)] md:text-xl mx-auto md:mx-0">
-                Senior JVM and AWS work for product teams — 20+ years in production systems, 10+ years with US and European companies. You contract a US LLC, get overlap in your hours, and a remote engineer who ships.
+            <p class="mt-4 max-w-xl text-lg leading-relaxed text-[var(--muted)] md:text-xl">
+                Senior Java and AWS work for product teams — 20+ years in production systems, 10+ years with US and European companies. You contract a US LLC, get overlap in your hours, and a remote engineer who ships.
             </p>
 
-            <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row md:justify-start">
+            <div class="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:justify-start">
                 <a href="#contact" class="btn-primary inline-flex items-center rounded-lg px-6 py-3 text-base">
                     Get in touch
                 </a>
@@ -648,10 +648,10 @@
     </div>
 
     <div class="mx-auto max-w-7xl border-t border-[var(--line)] px-6 py-10">
-        <p class="mb-6 text-center text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)] md:text-left">
+        <p class="mb-6 text-left text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
             Experience with teams at
         </p>
-        <div class="flex flex-wrap items-center justify-center gap-4 md:justify-start md:gap-5">
+        <div class="flex flex-wrap items-center justify-start gap-4 md:gap-5">
             <div class="client-logo-slot">
                 <img src="logos/ml.png" alt="MercadoLibre" class="client-logo-img client-logo-img--color">
             </div>
@@ -1358,6 +1358,86 @@
 
                 </div>
 
+
+
+                <div
+                    id="demo-fake-enterprise-rag"
+                    class="portfolio-demo-divider portfolio-demo-section"
+                    data-demo-slugs="fake-enterprise-rag,enterprise-rag,policy-rag"
+                >
+
+                    <div class="portfolio-demo-copy">
+
+                        <span class="inline-flex w-fit items-center gap-2 rounded-md bg-[var(--accent-dim)] border border-[rgba(212,165,116,0.28)] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[var(--accent)] mb-4">
+
+                            Demo
+
+                        </span>
+
+                        <h3 class="text-2xl font-bold text-white mb-3">Fake Enterprise RAG</h3>
+
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+
+                            Same synthetic company, same RAG core — two chunking adapters. Policies come from blank-line handbook text; Legal from a JSON clause library. Retrieval is scoped by area so the indexes never mix.
+
+                        </p>
+
+                        <p class="text-gray-500 text-xs mb-4">
+
+                            Ask console with paraphrase chips, exportable source, citations. Built for a LinkedIn walkthrough of adapters vs shared generate/cite.
+
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mb-5">
+
+                            <span class="portfolio-tag">Java 21</span>
+
+                            <span class="portfolio-tag">Spring Boot</span>
+
+                            <span class="portfolio-tag">LangChain4j</span>
+
+                            <span class="portfolio-tag">Angular 19</span>
+
+                            <span class="portfolio-tag">OpenAI</span>
+
+                        </div>
+
+                        <div class="demo-cta-row">
+
+                            <a href="#contact" class="demo-launch-btn demo-launch-btn--secondary inline-flex w-fit items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition">
+
+                                Request a walkthrough
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="portfolio-demo-preview rounded-xl border border-slate-700/80 bg-slate-950/80 p-6 flex flex-col justify-center">
+
+                        <p class="text-slate-500 uppercase tracking-widest text-[0.65rem] mb-3">Architecture</p>
+
+                        <p class="text-slate-300 text-sm leading-relaxed mb-3">
+
+                            Policies handbook → paragraph adapter → policies index<br />
+
+                            Legal clauses.json → clause adapter → legal index<br />
+
+                            Area selector → shared answer + citations
+
+                        </p>
+
+                        <p class="text-slate-500 text-xs">
+
+                            Live URL + screenshots after Heroku deploy. Repo: <code class="text-slate-400">fake-enterprise-rag</code>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
             </article>
 
 
@@ -1368,7 +1448,7 @@
 
                 <p class="text-gray-400 text-sm leading-relaxed mb-5">
 
-                    High-traffic JVM services for global marketplaces: catalog, checkout flows, and inventory orchestration with strict latency and reliability targets.
+                    High-traffic Java services for global marketplaces: catalog, checkout flows, and inventory orchestration with strict latency and reliability targets.
 
                 </p>
 
@@ -1464,16 +1544,16 @@
 
 
 
-<section id="engagement" data-home-section class="border-t border-[var(--line)] py-20 md:py-24 px-6">
+<section id="engagement" data-home-section class="border-t border-[var(--line)] py-20 md:py-24 max-w-7xl mx-auto px-6">
 
-    <div class="max-w-3xl mx-auto">
-
-        <h2 class="text-3xl font-bold tracking-tight mb-3">How we work</h2>
-
-        <p class="text-[var(--muted)] mb-8">
+    <div class="mb-12 max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight md:text-4xl">How we work</h2>
+        <p class="mt-3 text-[var(--muted)]">
             Fully remote. You work with me directly; paperwork runs through <strong class="text-[var(--ink)]">Kayak Consulting LLC</strong> — a US company — as <strong class="text-[var(--ink)]">C2C</strong> (staffing partner) or <strong class="text-[var(--ink)]">B2B</strong> (direct). Overlap with EST/PST and EU hours. California, wider US, Ireland, Europe.
         </p>
+    </div>
 
+    <div class="max-w-3xl">
         <p class="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)] mb-2">Engagement models</p>
 
         <div class="engage-row grid gap-2 sm:grid-cols-[11.5rem_1fr] sm:gap-8">
@@ -1509,7 +1589,6 @@
             Demos and engineering notes:
             <a href="https://www.linkedin.com/company/kayak-consulting-llc" target="_blank" rel="noopener noreferrer" class="text-[var(--accent)] hover:text-[var(--accent-hover)] underline underline-offset-2">Kayak Consulting LLC on LinkedIn</a>.
         </p>
-
     </div>
 
 </section>
