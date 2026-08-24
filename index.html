@@ -10,11 +10,11 @@
 
     <title>Federico Autalan | Senior Java Software Engineer</title>
 
-    <meta name="description" content="Senior Software Engineer with 20+ years of experience. Direct contracting via US LLC for North American, Irish (Galway), and European partners.">
+    <meta name="description" content="Senior backend engineer. 20+ years experience, 10+ years with US and European companies. C2C / B2B via US LLC — California, US, Ireland, and Europe.">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="dns-prefetch" href="https://agnostic-search-gateway.kayakconsultingusa.com">
     <link rel="preconnect" href="https://agnostic-search-gateway.kayakconsultingusa.com" crossorigin>
@@ -22,14 +22,113 @@
     <link rel="dns-prefetch" href="https://ai-sre-agent.kayakconsultingusa.com">
 
     <style>
+        :root {
+            --bg: #12110F;
+            --surface: #1A1916;
+            --surface-2: #22211D;
+            --ink: #F5F0E8;
+            --muted: #A39E94;
+            --line: rgba(245, 240, 232, 0.12);
+            --accent: #D4A574;
+            --accent-hover: #E0B88A;
+            --accent-dim: rgba(212, 165, 116, 0.16);
+        }
 
-        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; scroll-behavior: smooth; }
+        body {
+            font-family: "IBM Plex Sans", system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--ink);
+            scroll-behavior: smooth;
+        }
 
-        .hero-gradient { background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1518433278981-d58b73595c2a?q=80&w=2000&auto=format&fit=crop'); background-size: cover; background-position: center; }
+        .hero-shell {
+            background:
+                radial-gradient(ellipse 70% 50% at 10% 0%, rgba(212, 165, 116, 0.08), transparent 55%),
+                linear-gradient(180deg, #161512 0%, var(--bg) 100%);
+        }
 
-        .card { background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); transition: transform 0.3s ease; }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            transition: border-color 0.2s ease;
+        }
 
-        .card:hover { transform: translateY(-5px); border-color: rgba(59, 130, 246, 0.4); }
+        .card:hover {
+            border-color: rgba(212, 165, 116, 0.35);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #1A140C;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .btn-primary:hover { background: var(--accent-hover); }
+
+        .btn-ghost {
+            border: 1px solid var(--line);
+            color: var(--ink);
+            font-weight: 600;
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .btn-ghost:hover {
+            border-color: rgba(212, 165, 116, 0.4);
+            background: rgba(212, 165, 116, 0.06);
+        }
+
+        .skill-row {
+            border-top: 1px solid var(--line);
+        }
+
+        .skill-row:last-child {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .stack-band {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.75rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .stack-band span {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: var(--muted);
+            padding: 0.35rem 0.65rem;
+            border: 1px solid var(--line);
+            border-radius: 0.35rem;
+            background: var(--surface);
+        }
+
+        .engage-row {
+            border-top: 1px solid var(--line);
+            padding: 1.25rem 0;
+        }
+
+        .engage-row:last-of-type {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .hero-photo {
+            width: 11rem;
+            height: 11rem;
+            border-radius: 0.75rem;
+            object-fit: cover;
+            border: 1px solid var(--line);
+        }
+
+        @media (min-width: 768px) {
+            .hero-photo {
+                width: 14rem;
+                height: 14rem;
+            }
+        }
 
         .client-logo-slot {
             display: flex;
@@ -113,21 +212,18 @@
         }
 
         .portfolio-card {
-            background: rgba(30, 41, 59, 0.55);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            transition: border-color 0.2s ease;
         }
 
         .portfolio-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(59, 130, 246, 0.45);
-            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.45);
+            border-color: rgba(212, 165, 116, 0.35);
         }
 
         .portfolio-card--featured {
-            border-color: rgba(59, 130, 246, 0.35);
-            background: linear-gradient(145deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.9) 100%);
+            border-color: rgba(212, 165, 116, 0.28);
+            background: var(--surface-2);
         }
 
         .portfolio-tag {
@@ -135,11 +231,11 @@
             font-weight: 600;
             letter-spacing: 0.04em;
             text-transform: uppercase;
-            color: #93c5fd;
-            background: rgba(59, 130, 246, 0.15);
-            border: 1px solid rgba(59, 130, 246, 0.25);
+            color: var(--accent);
+            background: var(--accent-dim);
+            border: 1px solid rgba(212, 165, 116, 0.28);
             padding: 0.2rem 0.55rem;
-            border-radius: 9999px;
+            border-radius: 0.35rem;
         }
 
         .demo-cta-row {
@@ -308,7 +404,7 @@
         }
 
         .demo-deep-link-highlight {
-            outline: 2px solid rgba(59, 130, 246, 0.55);
+            outline: 2px solid rgba(212, 165, 116, 0.55);
             outline-offset: 6px;
             border-radius: 0.75rem;
             transition: outline-color 0.4s ease;
@@ -417,8 +513,9 @@
         }
 
         .classifier-carousel-btn:hover {
-            background: rgba(37, 99, 235, 0.9);
-            border-color: rgba(96, 165, 250, 0.6);
+            background: rgba(212, 165, 116, 0.9);
+            border-color: rgba(224, 184, 138, 0.6);
+            color: #1A140C;
         }
 
         .classifier-carousel-btn--prev {
@@ -452,9 +549,9 @@
         }
 
         .classifier-carousel-dot.is-active {
-            background: rgba(37, 99, 235, 0.35);
-            border-color: rgba(96, 165, 250, 0.7);
-            color: #e0e7ff;
+            background: rgba(212, 165, 116, 0.3);
+            border-color: rgba(212, 165, 116, 0.7);
+            color: #F5F0E8;
         }
 
         .portfolio-demo-divider {
@@ -463,31 +560,58 @@
             padding-top: 2rem;
         }
 
+        /* Home vs Portfolio tab (same page; #portfolio URLs unchanged) */
+        body.is-portfolio-view [data-home-section] {
+            display: none !important;
+        }
+
+        body:not(.is-portfolio-view) #portfolio {
+            display: none !important;
+        }
+
+        .nav-link.is-active {
+            color: #fff;
+        }
+
+        a[data-nav="portfolio"].is-active {
+            color: var(--accent);
+        }
+
     </style>
 
 </head>
 
 <body class="antialiased">
+<script>
+    if (/^#portfolio(\/|$)/.test(window.location.hash)) {
+        document.body.classList.add("is-portfolio-view");
+    }
+</script>
 
 
 
-<nav class="p-6 flex justify-between items-center max-w-7xl mx-auto">
+<nav class="p-6 flex justify-between items-center max-w-7xl mx-auto border-b border-[var(--line)]">
 
-    <a href="#" class="flex items-center gap-3 text-blue-400 hover:text-blue-300 transition shrink-0" aria-label="Kayak Consulting LLC, back to top">
+    <a href="#" id="nav-brand" class="flex items-center gap-3 text-[var(--ink)] hover:text-[var(--accent)] transition shrink-0" aria-label="Federico Autalan, back to home">
 
-        <img src="logos/kayak-consulting-logo.svg" alt="" width="36" height="36" class="h-9 w-9 shrink-0" aria-hidden="true" />
+        <img src="logos/kayak-consulting-logo.svg" alt="" width="36" height="36" class="h-9 w-9 shrink-0 opacity-90" aria-hidden="true" />
 
-        <span class="text-2xl font-bold tracking-tighter">KAYAK CONSULTING LLC</span>
+        <span class="text-left leading-tight">
+            <span class="block text-sm font-bold tracking-tight">Federico Autalan</span>
+            <span class="block text-[0.65rem] font-medium uppercase tracking-[0.12em] text-[var(--muted)]">Kayak Consulting LLC</span>
+        </span>
 
     </a>
 
-    <div class="flex gap-6 items-center text-sm font-medium">
+    <div class="flex gap-5 items-center text-sm font-medium">
 
-        <a href="#solutions" class="text-gray-400 hover:text-white transition">Experience</a>
+        <a href="#solutions" data-nav="experience" class="nav-link text-[var(--muted)] hover:text-[var(--ink)] transition hidden sm:inline">Experience</a>
 
-        <a href="#portfolio" class="text-gray-400 hover:text-white transition">Portfolio</a>
+        <a href="#portfolio" data-nav="portfolio" class="nav-link text-[var(--muted)] hover:text-[var(--ink)] transition">Portfolio</a>
 
-        <a href="#contact" class="bg-blue-600/20 text-blue-400 px-4 py-2 rounded-lg border border-blue-500/30 hover:bg-blue-600 hover:text-white transition">Contact</a>
+        <a href="#engagement" class="nav-link text-[var(--muted)] hover:text-[var(--ink)] transition hidden md:inline">Engagement</a>
+
+        <a href="#contact" data-nav="contact" class="btn-primary rounded-lg px-4 py-2 text-sm">Contact</a>
 
     </div>
 
@@ -495,151 +619,139 @@
 
 
 
-<header class="hero-gradient min-h-[90vh] flex flex-col items-center justify-center text-center px-4">
+<header data-home-section class="hero-shell">
+    <div class="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-[auto_1fr] md:items-center md:gap-16 md:py-24">
+        <img src="my_profile.jpg" alt="Federico Autalan" class="hero-photo mx-auto md:mx-0" width="224" height="224">
 
-    <div class="mb-4 inline-block bg-blue-500/10 text-blue-400 px-4 py-1 rounded-full text-xs font-bold tracking-widest border border-blue-500/20 uppercase">
+        <div class="text-center md:text-left">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
+                Backend · Remote · US LLC (C2C / B2B) · Overlap EST / PST / EU
+            </p>
 
-        B2B Contracting • USA • Canada + Ireland • Europe
+            <h1 class="mt-4 text-4xl font-bold tracking-tight text-[var(--ink)] md:text-6xl">
+                Federico Autalan
+            </h1>
 
-    </div>
+            <p class="mt-4 max-w-xl text-lg leading-relaxed text-[var(--muted)] md:text-xl mx-auto md:mx-0">
+                Senior JVM and AWS work for product teams — 20+ years in production systems, 10+ years with US and European companies. You contract a US LLC, get overlap in your hours, and a remote engineer who ships.
+            </p>
 
-
-
-    <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Senior <span class="text-blue-500">Software Engineer</span></h1>
-
-
-
-    <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mb-8 leading-relaxed">
-
-        I’m <strong>Federico Autalan</strong>, a Senior Backend Specialist with 20+ years of experience helping engineering teams build scalable, mission-critical systems.
-
-    </p>
-
-
-
-    <div class="flex flex-col md:flex-row gap-4 mb-16">
-
-        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition duration-300 shadow-xl shadow-blue-900/20 text-lg">
-
-            Let's Connect
-
-        </a>
-
-        <a href="#portfolio" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold py-4 px-8 rounded-lg transition duration-300 border border-slate-600 text-lg flex items-center justify-center gap-2">
-
-            <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6V4H4v6h2V8.41l8.29 8.3 1.42-1.42L7.41 7H10zm4.59 6.59L14 14.17V20h6v-6h-2v3.59l-8.29-8.3-1.42 1.42L16.59 13H14v2.59z"/></svg>
-
-            View Portfolio
-
-        </a>
-
-    </div>
-
-
-    <div class="w-full max-w-6xl mt-12">
-            <p class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-8">Experience with Teams at</p>
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 px-4">
-
-                <div class="client-logo-slot">
-                    <img src="logos/ml.png" alt="MercadoLibre" class="client-logo-img client-logo-img--color">
-                </div>
-
-                <div class="client-logo-slot">
-                    <img src="logos/rtr.jpg" alt="Rent The Runway" class="client-logo-img client-logo-img--color">
-                </div>
-
-                <div class="client-logo-slot client-logo-slot--siemens">
-                    <img src="logos/siemens-brand.png" alt="Siemens" class="client-logo-img">
-                </div>
-
-                <div class="client-logo-slot">
-                    <img src="logos/vw.jpeg" alt="Volkswagen" class="client-logo-img">
-                </div>
-
-                <div class="client-logo-slot">
-                    <img src="logos/telecom.jpeg" alt="Telecom" class="client-logo-img">
-                </div>
-
+            <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row md:justify-start">
+                <a href="#contact" class="btn-primary inline-flex items-center rounded-lg px-6 py-3 text-base">
+                    Get in touch
+                </a>
+                <a href="#portfolio" class="btn-ghost inline-flex items-center gap-2 rounded-lg px-6 py-3 text-base">
+                    View portfolio
+                </a>
             </div>
         </div>
+    </div>
 
+    <div class="mx-auto max-w-7xl border-t border-[var(--line)] px-6 py-10">
+        <p class="mb-6 text-center text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)] md:text-left">
+            Experience with teams at
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4 md:justify-start md:gap-5">
+            <div class="client-logo-slot">
+                <img src="logos/ml.png" alt="MercadoLibre" class="client-logo-img client-logo-img--color">
+            </div>
+            <div class="client-logo-slot">
+                <img src="logos/rtr.jpg" alt="Rent The Runway" class="client-logo-img client-logo-img--color">
+            </div>
+            <div class="client-logo-slot client-logo-slot--siemens">
+                <img src="logos/siemens-brand.png" alt="Siemens" class="client-logo-img">
+            </div>
+            <div class="client-logo-slot">
+                <img src="logos/vw.jpeg" alt="Volkswagen" class="client-logo-img">
+            </div>
+            <div class="client-logo-slot">
+                <img src="logos/telecom.jpeg" alt="Telecom" class="client-logo-img">
+            </div>
+        </div>
+    </div>
 </header>
 
 
 
-<section id="solutions" class="py-24 max-w-7xl mx-auto px-6">
+<section id="solutions" data-home-section class="py-20 md:py-24 max-w-7xl mx-auto px-6">
 
-    <div class="text-center mb-16">
-
-        <h2 class="text-3xl font-bold mb-4">Senior-Level Expertise, Simplified Hiring</h2>
-
-        <p class="text-gray-400 max-w-2xl mx-auto italic">Through Kayak Consulting LLC, I provide a streamlined B2B path for <strong>USA, Irish, and European companies</strong> to scale their engineering capacity.</p>
-
+    <div class="mb-12 max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight md:text-4xl">What I bring</h2>
+        <p class="mt-3 text-[var(--muted)]">
+            Senior backend work across industries where concurrency, integrations, and reliability matter. Domains below — not a named client list.
+        </p>
     </div>
 
-
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-        <div class="card p-8 rounded-2xl">
-
-            <div class="text-blue-500 mb-4 text-3xl">☕</div>
-
-            <h3 class="text-xl font-bold mb-3">Java & Kotlin</h3>
-
-            <p class="text-gray-400 text-sm">Decades of experience in the JVM ecosystem, focusing on clean, maintainable Spring Boot services.</p>
-
+    <div class="max-w-3xl">
+        <div class="skill-row grid gap-2 py-6 sm:grid-cols-[11.5rem_1fr] sm:gap-8">
+            <h3 class="text-sm font-semibold text-[var(--accent)]">Performance</h3>
+            <p class="text-sm leading-relaxed text-[var(--muted)]">Finding and fixing bottlenecks in hot paths — concurrency, data access, async pipelines, and load that shows up only in production.</p>
+        </div>
+        <div class="skill-row grid gap-2 py-6 sm:grid-cols-[11.5rem_1fr] sm:gap-8">
+            <h3 class="text-sm font-semibold text-[var(--accent)]">Payments &amp; fintech</h3>
+            <p class="text-sm leading-relaxed text-[var(--muted)]">High-concurrency payment backends, multi-country rules, and zero-downtime release patterns on systems that run around the clock.</p>
+        </div>
+        <div class="skill-row grid gap-2 py-6 sm:grid-cols-[11.5rem_1fr] sm:gap-8">
+            <h3 class="text-sm font-semibold text-[var(--accent)]">Marketplace &amp; catalog</h3>
+            <p class="text-sm leading-relaxed text-[var(--muted)]">Product and catalog platforms — APIs as source of truth, inventory-aware flows, ML-assisted attributes to cut manual cataloging time.</p>
+        </div>
+        <div class="skill-row grid gap-2 py-6 sm:grid-cols-[11.5rem_1fr] sm:gap-8">
+            <h3 class="text-sm font-semibold text-[var(--accent)]">Supply chain</h3>
+            <p class="text-sm leading-relaxed text-[var(--muted)]">Billing and partner integrations, warehouse edge devices into REST APIs, and UI/mobile pieces when the delivery needs it.</p>
+        </div>
+        <div class="skill-row grid gap-2 py-6 sm:grid-cols-[11.5rem_1fr] sm:gap-8">
+            <h3 class="text-sm font-semibold text-[var(--accent)]">Ops &amp; incidents</h3>
+            <p class="text-sm leading-relaxed text-[var(--muted)]">Event-driven incident and notification platforms on AWS (SQS, SNS, SES, Lambda) for US / California product teams.</p>
+        </div>
+        <div class="skill-row grid gap-2 py-6 sm:grid-cols-[11.5rem_1fr] sm:gap-8">
+            <h3 class="text-sm font-semibold text-[var(--accent)]">Telecom BSS</h3>
+            <p class="text-sm leading-relaxed text-[var(--muted)]">Billing and BSS cores under peak cycles, large subscriber bases, and data pipelines that have to stay up.</p>
+        </div>
+        <div class="skill-row grid gap-2 py-6 sm:grid-cols-[11.5rem_1fr] sm:gap-8">
+            <h3 class="text-sm font-semibold text-[var(--accent)]">Enterprise integration</h3>
+            <p class="text-sm leading-relaxed text-[var(--muted)]">ERP/SAP bridges, tax and regulatory flows, legacy modernization without freezing the business.</p>
+        </div>
+        <div class="skill-row grid gap-2 py-6 sm:grid-cols-[11.5rem_1fr] sm:gap-8">
+            <h3 class="text-sm font-semibold text-[var(--accent)]">Applied AI</h3>
+            <p class="text-sm leading-relaxed text-[var(--muted)]">
+                Portfolio demos — not client production systems. Agents, RAG, and classification with human-in-the-loop and rules outside the model.
+                <a href="#portfolio" class="text-[var(--accent)] hover:text-[var(--accent-hover)] underline underline-offset-2">See live demos</a>.
+            </p>
         </div>
 
-        <div class="card p-8 rounded-2xl">
-
-            <div class="text-blue-500 mb-4 text-3xl">☁️</div>
-
-            <h3 class="text-xl font-bold mb-3">AWS Engineering</h3>
-
-            <p class="text-gray-400 text-sm">Building and deploying resilient cloud-native applications using Kinesis, SQS, and Lambda.</p>
-
+        <p class="mt-10 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Core stack</p>
+        <div class="stack-band" aria-label="Core technology stack">
+            <span>Java</span>
+            <span>Kotlin</span>
+            <span>Spring Boot</span>
+            <span>AWS</span>
+            <span>PostgreSQL</span>
+            <span>Python</span>
+            <span>TypeScript / Angular</span>
+            <span>CI/CD</span>
         </div>
-
-        <div class="card p-8 rounded-2xl">
-
-            <div class="text-blue-500 mb-4 text-3xl">⚙️</div>
-
-            <h3 class="text-xl font-bold mb-3">Backend Core</h3>
-
-            <p class="text-gray-400 text-sm">Solving performance bottlenecks and optimizing database layer concurrency in distributed systems.</p>
-
-        </div>
-
-        <div class="card p-8 rounded-2xl">
-
-            <div class="text-blue-500 mb-4 text-3xl">🌍</div>
-
-            <h3 class="text-xl font-bold mb-3">Global B2B Contracting</h3>
-
-            <p class="text-gray-400 text-sm">Direct US LLC invoicing for engineering teams anywhere you operate.</p>
-
-        </div>
-
     </div>
 
 </section>
 
 
 
-<section id="portfolio" class="py-24 bg-slate-900/40 px-6">
+<section id="portfolio" class="py-24 px-6" style="background: var(--surface);">
 
     <div class="max-w-7xl mx-auto">
 
         <div class="text-center mb-16">
 
-            <p class="text-xs font-bold uppercase tracking-[0.2em] text-blue-400 mb-3">Portfolio</p>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)] mb-3">Portfolio</p>
 
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Selected Work &amp; Live Demos</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Selected Work &amp; Live Demos</h2>
 
-            <p class="text-gray-400 max-w-2xl mx-auto">
+            <p class="text-[var(--muted)] max-w-2xl mx-auto">
 
                 Hands-on examples of how I design backend systems, cloud architectures, and AI-assisted business workflows for enterprise teams.
+                Short walkthroughs also live on
+                <a href="https://www.linkedin.com/company/kayak-consulting-llc" target="_blank" rel="noopener noreferrer" class="text-[var(--accent)] hover:text-[var(--accent-hover)] underline underline-offset-2">Kayak Consulting LLC</a>
+                on LinkedIn.
 
             </p>
 
@@ -661,7 +773,7 @@
 
                     <div class="portfolio-demo-copy">
 
-                        <span class="inline-flex w-fit items-center gap-2 rounded-full bg-blue-500/15 border border-blue-500/30 px-3 py-1 text-xs font-bold uppercase tracking-wider text-blue-300 mb-4">
+                        <span class="inline-flex w-fit items-center gap-2 rounded-md bg-[var(--accent-dim)] border border-[rgba(212,165,116,0.28)] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[var(--accent)] mb-4">
 
                             Live Demo
 
@@ -840,7 +952,7 @@
 
                     <div class="portfolio-demo-copy">
 
-                        <span class="inline-flex w-fit items-center gap-2 rounded-full bg-blue-500/15 border border-blue-500/30 px-3 py-1 text-xs font-bold uppercase tracking-wider text-blue-300 mb-4">
+                        <span class="inline-flex w-fit items-center gap-2 rounded-md bg-[var(--accent-dim)] border border-[rgba(212,165,116,0.28)] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[var(--accent)] mb-4">
 
                             Live Demo
 
@@ -978,7 +1090,7 @@
 
                     <div class="portfolio-demo-copy">
 
-                        <span class="inline-flex w-fit items-center gap-2 rounded-full bg-blue-500/15 border border-blue-500/30 px-3 py-1 text-xs font-bold uppercase tracking-wider text-blue-300 mb-4">
+                        <span class="inline-flex w-fit items-center gap-2 rounded-md bg-[var(--accent-dim)] border border-[rgba(212,165,116,0.28)] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[var(--accent)] mb-4">
 
                             Live Demo
 
@@ -1106,7 +1218,7 @@
 
                     <div class="portfolio-demo-copy">
 
-                        <span class="inline-flex w-fit items-center gap-2 rounded-full bg-blue-500/15 border border-blue-500/30 px-3 py-1 text-xs font-bold uppercase tracking-wider text-blue-300 mb-4">
+                        <span class="inline-flex w-fit items-center gap-2 rounded-md bg-[var(--accent-dim)] border border-[rgba(212,165,116,0.28)] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[var(--accent)] mb-4">
 
                             Live Demo
 
@@ -1252,8 +1364,6 @@
 
             <article class="portfolio-card rounded-2xl p-8">
 
-                <div class="text-blue-500 mb-4 text-3xl">🛒</div>
-
                 <h3 class="text-xl font-bold mb-3">Marketplace &amp; eCommerce Scale</h3>
 
                 <p class="text-gray-400 text-sm leading-relaxed mb-5">
@@ -1277,8 +1387,6 @@
 
 
             <article class="portfolio-card rounded-2xl p-8">
-
-                <div class="text-blue-500 mb-4 text-3xl">☁️</div>
 
                 <h3 class="text-xl font-bold mb-3">AWS Event-Driven Platforms</h3>
 
@@ -1304,8 +1412,6 @@
 
             <article class="portfolio-card rounded-2xl p-8">
 
-                <div class="text-blue-500 mb-4 text-3xl">🏭</div>
-
                 <h3 class="text-xl font-bold mb-3">Enterprise Integration</h3>
 
                 <p class="text-gray-400 text-sm leading-relaxed mb-5">
@@ -1329,8 +1435,6 @@
 
 
             <article class="portfolio-card rounded-2xl p-8">
-
-                <div class="text-blue-500 mb-4 text-3xl">👗</div>
 
                 <h3 class="text-xl font-bold mb-3">Subscription &amp; Fulfillment Logic</h3>
 
@@ -1360,37 +1464,47 @@
 
 
 
-<section class="py-24 bg-slate-900/50 px-6">
+<section id="engagement" data-home-section class="border-t border-[var(--line)] py-20 md:py-24 px-6">
 
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+    <div class="max-w-3xl mx-auto">
 
-        <div class="w-48 h-48 rounded-full border-4 border-blue-500/30 overflow-hidden shadow-2xl shadow-blue-500/20 shrink-0">
+        <h2 class="text-3xl font-bold tracking-tight mb-3">How we work</h2>
 
-            <img src="https://raw.githubusercontent.com/sistemasjavadoo/kayak-consulting/main/my_profile.jpg" alt="Federico Autalan" class="w-full h-full object-cover">
+        <p class="text-[var(--muted)] mb-8">
+            Fully remote. You work with me directly; paperwork runs through <strong class="text-[var(--ink)]">Kayak Consulting LLC</strong> — a US company — as <strong class="text-[var(--ink)]">C2C</strong> (staffing partner) or <strong class="text-[var(--ink)]">B2B</strong> (direct). Overlap with EST/PST and EU hours. California, wider US, Ireland, Europe.
+        </p>
 
+        <p class="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)] mb-2">Engagement models</p>
+
+        <div class="engage-row grid gap-2 sm:grid-cols-[11.5rem_1fr] sm:gap-8">
+            <h3 class="text-sm font-semibold text-[var(--accent)]">Monthly retainer</h3>
+            <p class="text-sm leading-relaxed text-[var(--muted)]">Ongoing capacity on your team — steady weekly hours, part-time or full-time.</p>
+        </div>
+        <div class="engage-row grid gap-2 sm:grid-cols-[11.5rem_1fr] sm:gap-8">
+            <h3 class="text-sm font-semibold text-[var(--accent)]">Hourly (T&amp;M)</h3>
+            <p class="text-sm leading-relaxed text-[var(--muted)]">Flexible spikes, advisory, and work where scope shifts week to week.</p>
+        </div>
+        <div class="engage-row grid gap-2 sm:grid-cols-[11.5rem_1fr] sm:gap-8">
+            <h3 class="text-sm font-semibold text-[var(--accent)]">Fixed milestones</h3>
+            <p class="text-sm leading-relaxed text-[var(--muted)]">Defined outcomes quoted up front. Written scope; changes go through a change order.</p>
         </div>
 
-        <div class="flex-1">
+        <p class="mt-8 text-sm leading-relaxed text-[var(--muted)]">
+            <strong class="text-[var(--ink)]">Spikes &amp; MVPs:</strong> comfortable under unclear requirements — narrow the question, ship a thin testable slice, then harden.
+        </p>
 
-            <h2 class="text-3xl font-bold mb-4 text-blue-400">Direct Engineering Collaboration</h2>
+        <p class="mt-4 text-sm leading-relaxed text-[var(--muted)]">
+            <strong class="text-[var(--ink)]">Availability:</strong> limited concurrent engagements so focus stays on your roadmap. Start date and weekly hours (e.g. 20h or 40h) confirmed against capacity before kickoff — typically one primary engagement.
+        </p>
 
-            <div class="text-lg text-gray-300 leading-relaxed space-y-4">
+        <p class="mt-4 text-sm leading-relaxed text-[var(--muted)]">
+            English for technical discussions and client meetings; Spanish native; Portuguese intermediate.
+        </p>
 
-                <p>
-
-                    I act as a force multiplier for engineering teams. With <strong>Kayak Consulting LLC</strong>, the administrative side is handled via a US-based structure, making me a reliable partner for companies in <strong>Galway, New York, or London</strong>.
-
-                </p>
-
-                <p>
-
-                    I focus on delivering high-quality code, participating in technical discussions, and integrating seamlessly into your agile workflow with full timezone overlap.
-
-                </p>
-
-            </div>
-
-        </div>
+        <p class="mt-6 text-sm leading-relaxed text-[var(--muted)]">
+            Demos and engineering notes:
+            <a href="https://www.linkedin.com/company/kayak-consulting-llc" target="_blank" rel="noopener noreferrer" class="text-[var(--accent)] hover:text-[var(--accent-hover)] underline underline-offset-2">Kayak Consulting LLC on LinkedIn</a>.
+        </p>
 
     </div>
 
@@ -1398,23 +1512,23 @@
 
 
 
-<section id="contact" class="py-24 max-w-3xl mx-auto px-6 text-center">
+<section id="contact" data-home-section class="py-20 md:py-24 max-w-3xl mx-auto px-6">
 
-    <h2 class="text-4xl font-bold mb-4 text-white">Let's Work Together</h2>
+    <h2 class="text-3xl md:text-4xl font-bold mb-3 tracking-tight text-center">Let's work together</h2>
 
-    <p class="text-gray-400 mb-4 text-lg">
+    <p class="text-[var(--muted)] mb-4 text-center">
 
-        Senior-level capacity with the ease of B2B contracting.
+        US LLC · C2C or B2B · monthly, hourly, or fixed · capacity confirmed up front.
 
     </p>
 
-    <p class="text-gray-400 mb-12 text-sm">
+    <p class="text-[var(--muted)] mb-10 text-sm text-center">
 
         Prefer LinkedIn?
-
-        <a href="https://www.linkedin.com/in/federico-a-8845368/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">Connect there</a>,
-
-        or use the form below.
+        <a href="https://www.linkedin.com/in/federico-a-8845368/" target="_blank" rel="noopener noreferrer" class="text-[var(--accent)] hover:text-[var(--accent-hover)] underline underline-offset-2">Connect with me</a>
+        or
+        <a href="https://www.linkedin.com/company/kayak-consulting-llc" target="_blank" rel="noopener noreferrer" class="text-[var(--accent)] hover:text-[var(--accent-hover)] underline underline-offset-2">follow Kayak Consulting LLC</a>
+        — or use the form below.
 
     </p>
 
@@ -1424,19 +1538,19 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-            <input type="text" name="name" placeholder="Name" required class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 focus:border-blue-500 outline-none text-white transition">
+            <input type="text" name="name" placeholder="Name" required class="w-full p-4 rounded-lg bg-[var(--surface)] border border-[var(--line)] focus:border-[var(--accent)] outline-none text-[var(--ink)] transition">
 
-            <input type="text" name="company" placeholder="Company" class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 focus:border-blue-500 outline-none text-white transition">
+            <input type="text" name="company" placeholder="Company" class="w-full p-4 rounded-lg bg-[var(--surface)] border border-[var(--line)] focus:border-[var(--accent)] outline-none text-[var(--ink)] transition">
 
         </div>
 
-        <input type="email" name="email" placeholder="Work Email" required class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 focus:border-blue-500 outline-none text-white transition">
+        <input type="email" name="email" placeholder="Work Email" required class="w-full p-4 rounded-lg bg-[var(--surface)] border border-[var(--line)] focus:border-[var(--accent)] outline-none text-[var(--ink)] transition">
 
-        <textarea name="message" placeholder="How can I help your team?" rows="5" required class="w-full p-4 rounded-lg bg-slate-800 border border-slate-700 focus:border-blue-500 outline-none text-white transition"></textarea>
+        <textarea name="message" placeholder="Preferred model (monthly / hourly / fixed), target start, hours per week, and what you need…" rows="5" required class="w-full p-4 rounded-lg bg-[var(--surface)] border border-[var(--line)] focus:border-[var(--accent)] outline-none text-[var(--ink)] transition"></textarea>
 
 
 
-        <button type="submit" id="submit-button" class="w-full bg-blue-600 py-4 rounded-lg font-bold hover:bg-blue-700 transition duration-300 text-lg shadow-lg shadow-blue-900/40">
+        <button type="submit" id="submit-button" class="btn-primary w-full py-4 rounded-lg text-lg">
 
             Send Message
 
@@ -1450,7 +1564,7 @@
 
 
 
-<footer class="py-12 border-t border-slate-800 text-center text-gray-500 text-sm">
+<footer class="py-12 border-t border-[var(--line)] text-center text-[var(--muted)] text-sm">
 
     <div class="max-w-7xl mx-auto px-6 flex flex-col items-center gap-4">
 
@@ -1458,17 +1572,21 @@
 
             <img src="logos/kayak-consulting-logo.svg" alt="" width="24" height="24" class="h-6 w-6 shrink-0 opacity-80" aria-hidden="true" />
 
-            <div class="font-bold text-gray-400 uppercase tracking-[0.2em] text-xs">Kayak Consulting LLC</div>
+            <div class="font-semibold text-[var(--ink)] text-sm">Federico Autalan · Kayak Consulting LLC</div>
 
         </div>
 
-        <div class="opacity-70">
+        <div class="opacity-80">
 
-            USA • Supporting Teams in Ireland & Europe
+            C2C / B2B · California · US · Ireland · Europe
 
         </div>
 
-        <p>&copy; 2026 Federico Autalan. Senior Software Engineering Services.</p>
+        <p>
+            <a href="https://www.linkedin.com/company/kayak-consulting-llc" target="_blank" rel="noopener noreferrer" class="text-[var(--accent)] hover:text-[var(--accent-hover)] underline underline-offset-2">Follow Kayak Consulting LLC on LinkedIn</a>
+        </p>
+
+        <p>&copy; 2026 Federico Autalan</p>
 
     </div>
 
@@ -1641,14 +1759,55 @@
         await Promise.all(urls.map((url) => wakeDemo(url)));
     }
 
+    function isPortfolioHash(rawHash) {
+        return rawHash === "portfolio" || rawHash.startsWith("portfolio/");
+    }
+
+    function setPortfolioView(active) {
+        document.body.classList.toggle("is-portfolio-view", active);
+        document.querySelectorAll("[data-nav]").forEach((link) => {
+            const key = link.dataset.nav;
+            const on =
+                (active && key === "portfolio") ||
+                (!active && key === "experience" && window.location.hash.replace(/^#/, "") === "solutions") ||
+                (!active && key === "contact" && window.location.hash.replace(/^#/, "") === "contact");
+            link.classList.toggle("is-active", on);
+        });
+        const portfolioNav = document.querySelector('[data-nav="portfolio"]');
+        if (portfolioNav) {
+            portfolioNav.classList.toggle("is-active", active);
+            portfolioNav.setAttribute("aria-current", active ? "page" : "false");
+        }
+    }
+
+    function clearHashToHome() {
+        if (window.location.hash) {
+            history.pushState("", document.title, window.location.pathname + window.location.search);
+        }
+        setPortfolioView(false);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
     function handlePortfolioDeepLink() {
         const rawHash = window.location.hash.replace(/^#/, "");
-        if (!rawHash.startsWith("portfolio")) {
+
+        if (!isPortfolioHash(rawHash)) {
+            setPortfolioView(false);
+            if (rawHash === "solutions" || rawHash === "contact" || rawHash === "engagement") {
+                window.requestAnimationFrame(() => {
+                    document.getElementById(rawHash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                });
+            }
             return;
         }
 
+        setPortfolioView(true);
+
         if (rawHash === "portfolio") {
-            document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth", block: "start" });
+            window.requestAnimationFrame(() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
             return;
         }
 
@@ -1658,22 +1817,36 @@
         }
 
         const section = findDemoSectionBySlug(match[1]);
-        if (!section) {
-            document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth", block: "start" });
-            return;
-        }
-
-        section.scrollIntoView({ behavior: "smooth", block: "start" });
-        section.classList.add("demo-deep-link-highlight");
-        window.setTimeout(() => section.classList.remove("demo-deep-link-highlight"), 2500);
+        window.requestAnimationFrame(() => {
+            if (!section) {
+                document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                return;
+            }
+            section.scrollIntoView({ behavior: "smooth", block: "start" });
+            section.classList.add("demo-deep-link-highlight");
+            window.setTimeout(() => section.classList.remove("demo-deep-link-highlight"), 2500);
+        });
     }
 
+    document.getElementById("nav-brand")?.addEventListener("click", (event) => {
+        event.preventDefault();
+        clearHashToHome();
+    });
+
     window.addEventListener("hashchange", handlePortfolioDeepLink);
-    if (window.location.hash.startsWith("#portfolio")) {
+    window.addEventListener("popstate", handlePortfolioDeepLink);
+
+    if (isPortfolioHash(window.location.hash.replace(/^#/, ""))) {
+        setPortfolioView(true);
         window.addEventListener("load", () => {
             window.requestAnimationFrame(() => {
                 void handlePortfolioDeepLink();
             });
+        });
+    } else {
+        setPortfolioView(false);
+        window.addEventListener("load", () => {
+            void handlePortfolioDeepLink();
         });
     }
 
