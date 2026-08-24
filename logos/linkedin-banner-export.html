@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kayak Consulting — LinkedIn banner export</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      background: #0b0a09;
+      color: #f5f0e8;
+      padding: 2rem;
+      margin: 0;
+    }
+    p { color: #a39e94; max-width: 40rem; line-height: 1.5; }
+    button {
+      margin-top: 1rem;
+      background: #2563eb;
+      color: #fff;
+      border: 0;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      font: 600 0.95rem "Plus Jakarta Sans", system-ui, sans-serif;
+      cursor: pointer;
+    }
+    button:hover { background: #1d4ed8; }
+    #frame {
+      margin-top: 1.5rem;
+      border: 1px solid rgba(245, 240, 232, 0.12);
+      display: inline-block;
+      line-height: 0;
+      position: relative;
+    }
+    .linkedin-mock {
+      margin-top: 0.75rem;
+      color: #a39e94;
+      font-size: 0.85rem;
+    }
+    .linkedin-mock__bar {
+      position: relative;
+      width: 1128px;
+      max-width: 100%;
+      height: 191px;
+      overflow: hidden;
+      border: 1px solid rgba(245, 240, 232, 0.12);
+    }
+    .linkedin-mock__bar svg {
+      width: 100%;
+      height: 191px;
+      display: block;
+    }
+    .linkedin-mock__logo {
+      position: absolute;
+      left: 24px;
+      bottom: -48px;
+      width: 96px;
+      height: 96px;
+      border-radius: 4px;
+      border: 3px solid #0b0a09;
+      background: linear-gradient(145deg, #1a1916, #12110f);
+      box-shadow: 0 0 0 1px rgba(245, 240, 232, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b6560;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <h1>LinkedIn company banner</h1>
+  <p>1128 × 191 px. Open this file in Chrome, click <strong>Download PNG</strong>, upload to your Kayak Consulting LLC page.</p>
+  <button type="button" id="download">Download PNG</button>
+  <p class="linkedin-mock">Preview with LinkedIn logo overlap (bottom-left):</p>
+  <div class="linkedin-mock__bar" id="mock"></div>
+  <div id="frame" hidden></div>
+
+  <script>
+    fetch("linkedin-banner.svg")
+      .then((r) => r.text())
+      .then((svg) => {
+        document.getElementById("frame").innerHTML = svg;
+        document.getElementById("mock").innerHTML =
+          svg + '<div class="linkedin-mock__logo" aria-hidden="true">Logo</div>';
+      })
+      .catch(() => {
+        document.getElementById("frame").innerHTML =
+          "<p style=\"padding:1rem;color:#f87171\">Could not load linkedin-banner.svg — open via local server or paste SVG manually.</p>";
+      });
+
+    document.getElementById("download").addEventListener("click", async () => {
+      await document.fonts.load('700 34px "Plus Jakarta Sans"');
+      await document.fonts.load('600 31px "Plus Jakarta Sans"');
+      await document.fonts.ready;
+      await new Promise((r) => setTimeout(r, 400));
+
+      const svg = document.querySelector("#frame svg");
+      if (!svg) return;
+
+      const xml = new XMLSerializer().serializeToString(svg);
+      const url = URL.createObjectURL(new Blob([xml], { type: "image/svg+xml;charset=utf-8" }));
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = 1128;
+        canvas.height = 191;
+        canvas.getContext("2d").drawImage(img, 0, 0);
+        URL.revokeObjectURL(url);
+        canvas.toBlob((png) => {
+          const a = document.createElement("a");
+          a.href = URL.createObjectURL(png);
+          a.download = "kayak-consulting-linkedin-banner.png";
+          a.click();
+        }, "image/png");
+      };
+      img.src = url;
+    });
+  </script>
+</body>
+</html>

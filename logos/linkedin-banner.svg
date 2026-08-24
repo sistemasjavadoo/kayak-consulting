@@ -1,0 +1,54 @@
+<svg width="1128" height="191" viewBox="0 0 1128 191" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kayak Consulting LLC — Agility to adapt to your business and your technology.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1128" y2="191" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#161512"/>
+      <stop offset="1" stop-color="#12110F"/>
+    </linearGradient>
+    <linearGradient id="hull" x1="120" y1="92" x2="420" y2="132" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#2563EB" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#2563EB" stop-opacity="0"/>
+    </linearGradient>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <rect width="1128" height="191" fill="url(#bg)"/>
+  <rect x="0" y="118" width="1128" height="73" fill="url(#water)"/>
+  <path d="M0 148 C 94 138, 188 158, 282 148 C 376 138, 470 158, 564 148 C 658 138, 752 158, 846 148 C 940 138, 1034 158, 1128 148"
+        stroke="#2563EB" stroke-opacity="0.35" stroke-width="2" fill="none"/>
+
+  <!-- illustration: slight left nudge + ~5% smaller -->
+  <g transform="translate(386 125) scale(0.884) translate(-258 -125)">
+    <ellipse cx="180" cy="30" rx="220" ry="70" fill="#D4A574" fill-opacity="0.06"/>
+    <path d="M88 142 C 88 118, 130 108, 210 104 C 290 100, 350 106, 398 114 C 420 118, 428 128, 410 138 C 350 152, 210 156, 110 148 C 92 146, 84 144, 88 142 Z" fill="url(#hull)"/>
+    <path d="M88 142 C 88 118, 130 108, 210 104 C 290 100, 350 106, 398 114 C 420 118, 428 128, 410 138 C 350 152, 210 156, 110 148 C 92 146, 84 144, 88 142 Z" stroke="#60A5FA" stroke-opacity="0.45" stroke-width="1.5" fill="none"/>
+    <ellipse cx="248" cy="122" rx="34" ry="11" fill="#0F172A" fill-opacity="0.55"/>
+    <ellipse cx="248" cy="120" rx="28" ry="8" fill="#12110F" fill-opacity="0.35"/>
+    <path d="M372 112 C 392 114, 408 120, 402 128" stroke="#93C5FD" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+    <g transform="translate(296 118) rotate(-28)">
+      <rect x="-1" y="-40" width="2" height="80" rx="1" fill="#9A7B4F"/>
+      <rect x="-0.5" y="-38" width="1" height="76" rx="0.5" fill="#C4A574" opacity="0.35"/>
+      <rect x="-1.75" y="-14" width="3.5" height="11" rx="1.2" fill="#4A3220"/>
+      <rect x="-1.75" y="5" width="3.5" height="11" rx="1.2" fill="#4A3220"/>
+      <rect x="-5.5" y="-64" width="11" height="26" rx="4" fill="#4A3220"/>
+      <rect x="-2" y="-61" width="4" height="2.5" rx="0.6" fill="#2A1D12" opacity="0.45"/>
+      <path d="M -3 -62 Q 0 -58 3 -62" stroke="#6B4E3D" stroke-width="0.7" fill="none" opacity="0.5"/>
+      <rect x="-5.5" y="38" width="11" height="26" rx="4" fill="#4A3220"/>
+      <rect x="-2" y="57" width="4" height="2.5" rx="0.6" fill="#2A1D12" opacity="0.45"/>
+      <path d="M -3 60 Q 0 56 3 60" stroke="#6B4E3D" stroke-width="0.7" fill="none" opacity="0.5"/>
+    </g>
+  </g>
+
+  <!-- copy: center-right, within LinkedIn safe width -->
+  <g transform="translate(115 0)">
+    <line x1="448" y1="64" x2="512" y2="64" stroke="#D4A574" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="448" y="52" fill="#D4A574" font-family="'Plus Jakarta Sans', 'IBM Plex Sans', system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="5">KAYAK CONSULTING LLC</text>
+    <text x="448" y="98" fill="#FAF7F2" font-family="'Plus Jakarta Sans', 'IBM Plex Sans', system-ui, sans-serif" font-size="34" font-weight="700" letter-spacing="-0.8">Agility to adapt to your business</text>
+    <text x="448" y="138" fill="#D8D0C4" font-family="'Plus Jakarta Sans', 'IBM Plex Sans', system-ui, sans-serif" font-size="31" font-weight="600" letter-spacing="-0.4">and your technology.</text>
+  </g>
+</svg>
