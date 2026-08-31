@@ -2,13 +2,13 @@ Run local: `npm run dev` → http://localhost:8500
 
 ## Portfolio deep links (Heroku dyno warm-up)
 
-Open these before a live demo so the portfolio can warm the app. **AI SRE** and **Smart Supply** still ping health on **Open Live Demo** (Agnostic Search / AI SRE Agent also hit `/api/health/db` when those buttons wake).
+Open these before a live demo so the portfolio can warm the app. **Smart Supply** still pings health on **Open Live Demo**.
 
-**Classifier** and **Agnostic Search** no longer wake dynos: **Open Live Demo** shows a message asking for a LinkedIn DM to Federico Autalan.
+**AI SRE**, **Classifier**, and **Agnostic Search** no longer wake dynos: live buttons show a message asking for a LinkedIn DM to Federico Autalan.
 
 | Demo | Link | Live demo click |
 |------|------|-----------------|
-| AI SRE | https://kayakconsultingusa.com/#portfolio/ai-sre | Warm-up + open app |
+| AI SRE | https://kayakconsultingusa.com/#portfolio/ai-sre | LinkedIn DM request (Trigger a fault / Agent dashboard) |
 | Smart Supply | https://kayakconsultingusa.com/#portfolio/smart-supply | Warm-up + open app |
 | Classifier | https://kayakconsultingusa.com/#portfolio/classifier | LinkedIn DM request |
 | Agnostic Search | https://kayakconsultingusa.com/#portfolio/agnostic-search | LinkedIn DM request |
