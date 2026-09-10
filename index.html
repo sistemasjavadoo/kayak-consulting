@@ -1597,7 +1597,12 @@
 
         <div class="engage-row grid gap-2 sm:grid-cols-[11.5rem_1fr] sm:gap-8 mt-8">
             <h3 class="text-sm font-semibold text-[var(--accent)]">Security</h3>
-            <p class="text-sm leading-relaxed text-[var(--muted)]">NDA and you own the work product (code and docs) through Kayak Consulting LLC. Production data only when required, in isolated setups; local copies encrypted and deleted when the engagement ends.</p>
+            <div class="space-y-3 text-sm leading-relaxed text-[var(--muted)]">
+                <p><span class="font-medium text-[var(--ink)]">NDA and IP.</span> All work product (code, docs, architecture) is owned by the client through Kayak Consulting LLC, under NDA.</p>
+                <p><span class="font-medium text-[var(--ink)]">Data.</span> Production access only when required, in isolated environments. Local copies on full-disk encryption / FileVault; purged when the engagement ends.</p>
+                <p><span class="font-medium text-[var(--ink)]">Secrets.</span> Password manager and encrypted channels for AWS tokens and credentials — never stored in plain text.</p>
+                <p><span class="font-medium text-[var(--ink)]">Devices.</span> Work from encrypted, up-to-date endpoints.</p>
+            </div>
         </div>
         <div class="engage-row grid gap-2 sm:grid-cols-[11.5rem_1fr] sm:gap-8">
             <h3 class="text-sm font-semibold text-[var(--accent)]">Hours</h3>
