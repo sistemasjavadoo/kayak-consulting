@@ -1575,7 +1575,7 @@
     <div class="mb-12 max-w-2xl">
         <h2 class="text-3xl font-bold tracking-tight md:text-4xl">How we work</h2>
         <p class="mt-3 text-[var(--muted)]">
-            Fully remote — you work with me directly. Contracts and invoicing run through <strong class="text-[var(--ink)]">Kayak Consulting LLC</strong>, a US company, on <strong class="text-[var(--ink)]">C2C</strong> (via staffing) or <strong class="text-[var(--ink)]">B2B</strong> (direct). <strong class="text-[var(--ink)]">Not W-2</strong> employment or visa sponsorship. Standard engagement: W-9 from the LLC and invoicing — a normal US corp-to-corp setup, not a W-2 hire. Overlap with EST, CST, PST, and EU hours. Clients in California, wider US, Ireland, and Europe.
+            Fully remote. Contracts and invoicing run through <strong class="text-[var(--ink)]">Kayak Consulting LLC</strong>, a US company, on <strong class="text-[var(--ink)]">C2C</strong> (via staffing) or <strong class="text-[var(--ink)]">B2B</strong> (direct). <strong class="text-[var(--ink)]">Not W-2</strong> employment or visa sponsorship. Standard engagement: W-9 from the LLC and invoicing — not a W-2 hire. Overlap with EST, CST, PST, and EU hours. Clients in California, wider US, Ireland, and Europe.
         </p>
     </div>
 
@@ -1610,7 +1610,7 @@
         </div>
         <div class="engage-row grid gap-2 sm:grid-cols-[11.5rem_1fr] sm:gap-8">
             <h3 class="text-sm font-semibold text-[var(--accent)]">Ownership</h3>
-            <p class="text-sm leading-relaxed text-[var(--muted)]">Open problems, not ticket farming. I investigate, propose, and ship end-to-end — debt and risk called out early.</p>
+            <p class="text-sm leading-relaxed text-[var(--muted)]">Open problems, not ticket farming. Investigate, propose, and ship end-to-end — debt and risk called out early.</p>
         </div>
         <div class="engage-row grid gap-2 sm:grid-cols-[11.5rem_1fr] sm:gap-8">
             <h3 class="text-sm font-semibold text-[var(--accent)]">Commitment</h3>
@@ -1937,14 +1937,25 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
+    function homeSectionId() {
+        const fromQuery = new URLSearchParams(window.location.search).get("section");
+        const fromHash = window.location.hash.replace(/^#/, "");
+        const id = fromQuery || fromHash;
+        if (id === "solutions" || id === "contact" || id === "engagement") {
+            return id;
+        }
+        return "";
+    }
+
     function handlePortfolioDeepLink() {
         const rawHash = window.location.hash.replace(/^#/, "");
 
         if (!isPortfolioHash(rawHash)) {
             setPortfolioView(false);
-            if (rawHash === "solutions" || rawHash === "contact" || rawHash === "engagement") {
+            const homeId = homeSectionId();
+            if (homeId) {
                 window.requestAnimationFrame(() => {
-                    document.getElementById(rawHash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    document.getElementById(homeId)?.scrollIntoView({ behavior: "smooth", block: "start" });
                 });
             }
             return;
