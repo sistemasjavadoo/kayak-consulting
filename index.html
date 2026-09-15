@@ -20,6 +20,7 @@
     <link rel="preconnect" href="https://agnostic-search-gateway.kayakconsultingusa.com" crossorigin>
     <link rel="dns-prefetch" href="https://ai-sre-client.kayakconsultingusa.com">
     <link rel="dns-prefetch" href="https://ai-sre-agent.kayakconsultingusa.com">
+    <link rel="dns-prefetch" href="https://demo-enterprise-rag.kayakconsultingusa.com">
 
     <style>
         :root {
@@ -279,6 +280,8 @@
             font-weight: 600;
             color: #fff;
             transition: background 0.2s ease, border-color 0.2s ease;
+            cursor: pointer;
+            font-family: inherit;
         }
 
         .demo-linkedin-btn:hover {
@@ -446,17 +449,133 @@
         .classifier-demo-row,
         .smart-supply-demo-row,
         .agnostic-search-demo-row,
-        .ai-sre-demo-row {
+        .ai-sre-demo-row,
+        .enterprise-rag-demo-row {
             flex-direction: column !important;
         }
 
         .classifier-demo-row > .portfolio-demo-preview,
         .smart-supply-demo-row > .portfolio-demo-preview,
         .agnostic-search-demo-row > .portfolio-demo-preview,
-        .ai-sre-demo-row > .portfolio-demo-preview {
+        .ai-sre-demo-row > .portfolio-demo-preview,
+        .enterprise-rag-demo-row > .portfolio-demo-preview {
             flex: 1 1 auto;
             width: 100%;
             max-width: 100%;
+        }
+
+        .classifier-carousel-slide--story {
+            min-height: min(52vh, 520px);
+            max-height: min(52vh, 520px);
+            padding: 1.25rem 1.5rem 1.5rem;
+            background: #09090b;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .classifier-carousel-slide--story .demo-story {
+            max-width: 46rem;
+            margin: 0 auto;
+            color: #cbd5e1;
+            font-size: 0.875rem;
+            line-height: 1.65;
+        }
+
+        .classifier-carousel-slide--story .demo-story p + p {
+            margin-top: 0.85rem;
+        }
+
+        .classifier-carousel-slide--story .demo-story strong {
+            color: #f1f5f9;
+            font-weight: 600;
+        }
+
+        .demo-video-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 80;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: rgba(2, 6, 23, 0.82);
+            backdrop-filter: blur(4px);
+        }
+
+        .demo-video-modal.is-open {
+            display: flex;
+        }
+
+        .demo-video-modal__card {
+            width: min(720px, 100%);
+            max-height: min(90vh, 900px);
+            overflow: auto;
+            border-radius: 1rem;
+            border: 1px solid rgba(100, 116, 139, 0.5);
+            background: #0f172a;
+            padding: 1rem 1rem 1.25rem;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+        }
+
+        .demo-video-modal__head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .demo-video-modal__head h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #f8fafc;
+        }
+
+        .demo-video-modal__close {
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            background: transparent;
+            color: #cbd5e1;
+            border-radius: 0.5rem;
+            padding: 0.35rem 0.7rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .demo-video-modal__close:hover {
+            border-color: rgba(212, 165, 116, 0.7);
+            color: #F5F0E8;
+        }
+
+        .demo-video-modal__frame {
+            position: relative;
+            width: 100%;
+            min-height: 420px;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            background: #020617;
+            border: 1px solid rgba(51, 65, 85, 0.9);
+        }
+
+        .demo-video-modal__frame iframe {
+            display: block;
+            width: 100%;
+            min-height: 560px;
+            border: 0;
+        }
+
+        .demo-video-modal__fallback {
+            display: block;
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            text-align: center;
+        }
+
+        .demo-video-modal__fallback a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 2px;
         }
 
         .classifier-carousel {
@@ -790,8 +909,155 @@
             <article class="portfolio-card portfolio-card--featured rounded-2xl p-8 lg:col-span-2">
 
                 <div
+                    id="demo-enterprise-rag"
+                    class="portfolio-demo-section enterprise-rag-demo-row"
+                    data-demo-slugs="demo-enterprise-rag,enterprise-rag,policy-rag,fake-enterprise-rag"
+                    data-demo-health="https://demo-enterprise-rag.kayakconsultingusa.com/api/health"
+                >
+
+                    <div class="portfolio-demo-copy">
+
+                        <span class="inline-flex w-fit items-center gap-2 rounded-md bg-[var(--accent-dim)] border border-[rgba(212,165,116,0.28)] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[var(--accent)] mb-4">
+
+                            Live Demo
+
+                        </span>
+
+                        <h3 class="text-2xl font-bold text-white mb-3">Demo Enterprise RAG</h3>
+
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+
+                            Inside a company, the hard part is not “having documents.” It’s getting a straight answer with a source — without digging through handbooks, clause libraries, and shared drives.
+
+                        </p>
+
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+
+                            One RAG core (generate + cite), scoped by area. Policies and Legal keep separate adapters and indexes so retrieval never mixes. Ask in the right area; get an answer with citations you can check.
+
+                        </p>
+
+                        <p class="text-gray-500 text-xs mb-4">
+
+                            Intentionally small for a clear walkthrough. Same synthetic company. Built to show how you’d wire this in a Spring Boot shop — not another chatbot wrapper.
+
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mb-5">
+
+                            <span class="portfolio-tag">Java 25</span>
+
+                            <span class="portfolio-tag">Spring Boot 4</span>
+
+                            <span class="portfolio-tag">Angular 21</span>
+
+                            <span class="portfolio-tag">LangChain4j</span>
+
+                            <span class="portfolio-tag">OpenAI</span>
+
+                            <span class="portfolio-tag">pgvector</span>
+
+                        </div>
+
+                        <div class="demo-cta-row">
+
+                            <button type="button" class="demo-linkedin-btn" data-demo-video-open data-demo-video-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7505603606973214720" data-demo-video-title="Demo Enterprise RAG" data-demo-video-fallback="https://www.linkedin.com/posts/kayak-consulting-llc_demo-enterprise-rag-by-federico-autalan-activity-7505603606973214720-p6Uf">
+
+                                Watch demo
+
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 114.126 0 2.063 2.063 0 01-2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+
+                            </button>
+
+                            <a href="https://demo-enterprise-rag.kayakconsultingusa.com/" data-demo-request-contact="true" target="_blank" rel="noopener noreferrer" class="demo-launch-btn demo-launch-btn--secondary inline-flex w-fit items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition disabled:pointer-events-none">
+
+                                Open Live Demo
+
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="portfolio-demo-preview rounded-xl border border-slate-700/80 bg-slate-950/80 p-4 flex flex-col">
+
+                        <p class="text-slate-500 uppercase tracking-widest text-[0.65rem] mb-3 px-1">Scoped retrieval · Policies vs Legal</p>
+
+                        <div class="classifier-carousel" data-portfolio-carousel data-carousel-autoplay="false">
+
+                            <div class="classifier-carousel-viewport">
+
+                                <div class="classifier-carousel-track" data-carousel-track>
+
+                                    <figure class="classifier-carousel-slide">
+
+                                        <div class="classifier-carousel-slide--story">
+
+                                            <div class="demo-story">
+
+                                            <p>Inside a company, the hard part is not “having documents.” It’s getting a straight answer with a source — without digging through handbooks, clause libraries, and shared drives, or pinging the one person who knows where it lives.</p>
+
+                                            <p>That’s what RAG is for. But dumping every PDF into one vector store is the wrong shape for enterprise: Policies and Legal don’t look alike, and they shouldn’t retrieve into each other.</p>
+
+                                            <p>This demo keeps one RAG core (generate + cite) and scopes by area. <strong>Handbook → paragraph adapter → policies index.</strong> <strong>Clauses JSON → clause adapter → legal index.</strong> Ask in the right area; get an answer with citations you can check.</p>
+
+                                            <p>It’s intentionally small: a handful of clauses and two areas so the walkthrough stays clear. In production you’d have far denser clause libraries, more areas, and other ingestion paths — SFTP drops, event streams, push APIs — same adapter idea, bigger surface.</p>
+
+                                            <p>Same synthetic company. Built to show how you’d wire this in a Spring Boot shop — not another chatbot wrapper.</p>
+
+                                            </div>
+
+                                        </div>
+
+                                        <figcaption>How it works</figcaption>
+
+                                    </figure>
+
+                                    <figure class="classifier-carousel-slide">
+
+                                        <img src="demos/demo-enterprise-rag/der-1.png" alt="Demo Enterprise RAG main screen with area selector, Ask console, and demo chips" width="1280" height="720" loading="eager" />
+
+                                        <figcaption>Main screen</figcaption>
+
+                                    </figure>
+
+                                    <figure class="classifier-carousel-slide">
+
+                                        <img src="demos/demo-enterprise-rag/der-2.png" alt="Demo Enterprise RAG answer with citations after asking a scoped question" width="1280" height="720" loading="lazy" />
+
+                                        <figcaption>Ask + citations</figcaption>
+
+                                    </figure>
+
+                                </div>
+
+                            </div>
+
+                            <button type="button" class="classifier-carousel-btn classifier-carousel-btn--prev" data-carousel-prev aria-label="Previous slide">‹</button>
+
+                            <button type="button" class="classifier-carousel-btn classifier-carousel-btn--next" data-carousel-next aria-label="Next slide">›</button>
+
+                            <div class="classifier-carousel-dots" data-carousel-dots role="tablist" aria-label="Demo Enterprise RAG slides">
+
+                                <button type="button" class="classifier-carousel-dot is-active" data-carousel-goto="0" role="tab" aria-selected="true">How it works</button>
+
+                                <button type="button" class="classifier-carousel-dot" data-carousel-goto="1" role="tab" aria-selected="false">Main</button>
+
+                                <button type="button" class="classifier-carousel-dot" data-carousel-goto="2" role="tab" aria-selected="false">Ask + citations</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div
                     id="demo-ai-sre"
-                    class="portfolio-demo-section ai-sre-demo-row"
+                    class="portfolio-demo-divider portfolio-demo-section ai-sre-demo-row"
                     data-demo-slugs="ai-sre,ai-sre-agent,ai-sre-client"
                     data-demo-health="https://ai-sre-client.kayakconsultingusa.com/api/health"
                     data-demo-warm-urls="https://ai-sre-agent.kayakconsultingusa.com/health,https://ai-sre-agent.kayakconsultingusa.com/api/health/db"
@@ -1385,85 +1651,6 @@
                 </div>
 
 
-
-                <div
-                    id="demo-fake-enterprise-rag"
-                    class="portfolio-demo-divider portfolio-demo-section"
-                    data-demo-slugs="fake-enterprise-rag,enterprise-rag,policy-rag"
-                >
-
-                    <div class="portfolio-demo-copy">
-
-                        <span class="inline-flex w-fit items-center gap-2 rounded-md bg-[var(--accent-dim)] border border-[rgba(212,165,116,0.28)] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[var(--accent)] mb-4">
-
-                            Demo
-
-                        </span>
-
-                        <h3 class="text-2xl font-bold text-white mb-3">Fake Enterprise RAG</h3>
-
-                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
-
-                            Same synthetic company, same RAG core — two chunking adapters. Policies come from blank-line handbook text; Legal from a JSON clause library. Retrieval is scoped by area so the indexes never mix.
-
-                        </p>
-
-                        <p class="text-gray-500 text-xs mb-4">
-
-                            Ask console with paraphrase chips, exportable source, citations. Built for a LinkedIn walkthrough of adapters vs shared generate/cite.
-
-                        </p>
-
-                        <div class="flex flex-wrap gap-2 mb-5">
-
-                            <span class="portfolio-tag">Java 21</span>
-
-                            <span class="portfolio-tag">Spring Boot</span>
-
-                            <span class="portfolio-tag">LangChain4j</span>
-
-                            <span class="portfolio-tag">Angular 19</span>
-
-                            <span class="portfolio-tag">OpenAI</span>
-
-                        </div>
-
-                        <div class="demo-cta-row">
-
-                            <a href="#contact" class="demo-launch-btn demo-launch-btn--secondary inline-flex w-fit items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition">
-
-                                Request a walkthrough
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="portfolio-demo-preview rounded-xl border border-slate-700/80 bg-slate-950/80 p-6 flex flex-col justify-center">
-
-                        <p class="text-slate-500 uppercase tracking-widest text-[0.65rem] mb-3">Architecture</p>
-
-                        <p class="text-slate-300 text-sm leading-relaxed mb-3">
-
-                            Policies handbook → paragraph adapter → policies index<br />
-
-                            Legal clauses.json → clause adapter → legal index<br />
-
-                            Area selector → shared answer + citations
-
-                        </p>
-
-                        <p class="text-slate-500 text-xs">
-
-                            Live URL + screenshots after Heroku deploy. Repo: <code class="text-slate-400">fake-enterprise-rag</code>
-
-                        </p>
-
-                    </div>
-
-                </div>
-
             </article>
 
 
@@ -1770,6 +1957,22 @@
             <button type="button" id="demo-request-linkedin" class="demo-request-modal__primary">Message on LinkedIn</button>
             <button type="button" class="demo-request-modal__close" data-demo-request-close>Close</button>
         </div>
+    </div>
+</div>
+
+<div id="demo-video-modal" class="demo-video-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="demo-video-title">
+    <div class="demo-video-modal__card">
+        <div class="demo-video-modal__head">
+            <h3 id="demo-video-title">Demo walkthrough</h3>
+            <button type="button" class="demo-video-modal__close" data-demo-video-close>Close</button>
+        </div>
+        <div class="demo-video-modal__frame">
+            <iframe id="demo-video-iframe" title="LinkedIn demo video" loading="lazy" allowfullscreen allow="encrypted-media; clipboard-write; web-share; fullscreen"></iframe>
+        </div>
+        <p class="demo-video-modal__fallback">
+            Prefer LinkedIn?
+            <a id="demo-video-fallback" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">Open the post</a>
+        </p>
     </div>
 </div>
 
@@ -2083,11 +2286,62 @@
         closeDemoRequestModal();
     });
 
+    const demoVideoModal = document.getElementById("demo-video-modal");
+    const demoVideoIframe = document.getElementById("demo-video-iframe");
+    const demoVideoTitle = document.getElementById("demo-video-title");
+    const demoVideoFallback = document.getElementById("demo-video-fallback");
+
+    function closeDemoVideoModal() {
+        if (!demoVideoModal) {
+            return;
+        }
+        demoVideoModal.classList.remove("is-open");
+        demoVideoModal.setAttribute("aria-hidden", "true");
+        if (demoVideoIframe) {
+            demoVideoIframe.removeAttribute("src");
+        }
+    }
+
+    function openDemoVideoModal(button) {
+        if (!demoVideoModal || !demoVideoIframe) {
+            return;
+        }
+        const src = button.getAttribute("data-demo-video-src") || "";
+        const title = button.getAttribute("data-demo-video-title") || "Demo walkthrough";
+        const fallback = button.getAttribute("data-demo-video-fallback") || src;
+        if (demoVideoTitle) {
+            demoVideoTitle.textContent = title;
+        }
+        if (demoVideoFallback) {
+            demoVideoFallback.href = fallback;
+        }
+        demoVideoIframe.src = src;
+        demoVideoModal.classList.add("is-open");
+        demoVideoModal.setAttribute("aria-hidden", "false");
+    }
+
+    document.querySelectorAll("[data-demo-video-open]").forEach((button) => {
+        button.addEventListener("click", () => openDemoVideoModal(button));
+    });
+
+    demoVideoModal?.addEventListener("click", (event) => {
+        if (event.target === demoVideoModal || event.target.closest("[data-demo-video-close]")) {
+            closeDemoVideoModal();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && demoVideoModal?.classList.contains("is-open")) {
+            closeDemoVideoModal();
+        }
+    });
+
     document.querySelectorAll("[data-portfolio-carousel]").forEach((root) => {
         const track = root.querySelector("[data-carousel-track]");
         const dots = root.querySelectorAll("[data-carousel-goto]");
         const total = track.querySelectorAll(".classifier-carousel-slide").length;
         let index = 0;
+        const autoplay = root.getAttribute("data-carousel-autoplay") !== "false";
 
         function goTo(i) {
             index = (i + total) % total;
@@ -2114,6 +2368,10 @@
         dots.forEach((dot) => {
             dot.addEventListener("click", () => goTo(Number(dot.dataset.carouselGoto)));
         });
+
+        if (!autoplay) {
+            return;
+        }
 
         let timer = setInterval(() => goTo(index + 1), 7000);
         root.addEventListener("mouseenter", () => clearInterval(timer));
