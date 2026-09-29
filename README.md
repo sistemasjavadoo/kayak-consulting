@@ -1,5 +1,7 @@
 Run local: `npm run dev` → http://localhost:8500
 
+Book a call: http://127.0.0.1:8765/?mode=meeting#contact
+
 ## Portfolio deep links (Heroku dyno warm-up)
 
 Open these before a live demo so the portfolio can warm the app. **Smart Supply** still pings health on **Open Live Demo**.

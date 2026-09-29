@@ -270,7 +270,8 @@
             color: var(--ink);
         }
 
-        .hero-seal-num--zones {
+        .hero-seal-num--zones,
+        .hero-seal-num--word {
             font-size: clamp(1.05rem, 1.7vw, 1.45rem);
             letter-spacing: -0.03em;
             line-height: 1.15;
@@ -355,6 +356,7 @@
             color: var(--muted);
         }
 
+
         @media (min-width: 768px) {
             .hero-seals {
                 grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -411,6 +413,11 @@
                 grid-template-columns: repeat(3, minmax(0, 1fr));
                 gap: 2rem;
                 max-width: 64rem;
+            }
+
+            .engage-models.engage-steps {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                max-width: none;
             }
         }
 
@@ -1115,7 +1122,7 @@
             <p class="hero-stamp">[ C2C / B2B ]</p>
 
             <p class="hero-lead">
-                Senior Software Engineer for product teams. Main stack: Java and AWS. You contract Kayak Consulting LLC — not W-2 employment, no visa sponsorship. A remote engineer who ships.
+                You hand me a backend problem that is not fully shaped. I narrow it, lay out the options, and ship it. Main stack: Java and AWS. You contract Kayak Consulting LLC — the code belongs to your company. Not W-2, no visa sponsorship.
             </p>
 
             <div class="hero-actions flex flex-col items-start gap-3 sm:flex-row">
@@ -1141,7 +1148,7 @@
             <p class="hero-seal-label">years with US / EU teams</p>
         </div>
         <div>
-            <p class="hero-seal-num">C2C</p>
+            <p class="hero-seal-num hero-seal-num--word">C2C/B2B</p>
             <p class="hero-seal-label">via US LLC, not W-2</p>
         </div>
         <div>
@@ -1176,6 +1183,25 @@
             <div class="client-logo-slot">
                 <img src="logos/coforge.svg" alt="Coforge" class="client-logo-img client-logo-img--color">
             </div>
+        </div>
+    </div>
+
+    <div class="hero-seals">
+        <div>
+            <p class="hero-seal-num">NDA</p>
+            <p class="hero-seal-label">Signed when you need it</p>
+        </div>
+        <div>
+            <p class="hero-seal-num hero-seal-num--word">Your code</p>
+            <p class="hero-seal-label">The code is yours</p>
+        </div>
+        <div>
+            <p class="hero-seal-num hero-seal-num--word">Encrypted</p>
+            <p class="hero-seal-label">Machines, from day one</p>
+        </div>
+        <div>
+            <p class="hero-seal-num">Direct</p>
+            <p class="hero-seal-label">You talk to me</p>
         </div>
     </div>
 </header>
@@ -2158,6 +2184,31 @@
         </p>
     </div>
 
+    <p class="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)] mb-4">How it starts</p>
+
+    <div class="engage-models engage-steps">
+        <article>
+            <p class="engage-num">01</p>
+            <h3>Diagnose</h3>
+            <p class="engage-blurb">We name the problem, even if it is fuzzy.</p>
+        </article>
+        <article>
+            <p class="engage-num">02</p>
+            <h3>Options</h3>
+            <p class="engage-blurb">Paths, with tradeoffs.</p>
+        </article>
+        <article>
+            <p class="engage-num">03</p>
+            <h3>You decide</h3>
+            <p class="engage-blurb">You pick, with the tradeoffs in front of you.</p>
+        </article>
+        <article>
+            <p class="engage-num">04</p>
+            <h3>I build it</h3>
+            <p class="engage-blurb">The code stays with your company.</p>
+        </article>
+    </div>
+
     <p class="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)] mb-4">Engagement models</p>
 
     <div class="engage-models">
@@ -2194,7 +2245,7 @@
         </div>
         <div class="engage-row grid gap-2 sm:grid-cols-[11.5rem_1fr] sm:gap-8">
             <h3 class="text-sm font-semibold text-[var(--accent)]">Ownership</h3>
-            <p class="text-sm leading-relaxed text-[var(--muted)]">Open problems, not ticket farming. Investigate, propose, and ship end-to-end — debt and risk called out early.</p>
+            <p class="text-sm leading-relaxed text-[var(--muted)]">Open problems, not ticket farming. Debt and risk called out early.</p>
         </div>
         <div class="engage-row grid gap-2 sm:grid-cols-[11.5rem_1fr] sm:gap-8">
             <h3 class="text-sm font-semibold text-[var(--accent)]">Commitment</h3>
@@ -2243,7 +2294,7 @@
 
 <section id="contact" data-home-section class="py-20 md:py-24 max-w-5xl mx-auto px-6">
 
-    <h2 class="text-3xl md:text-4xl font-bold mb-3 tracking-tight text-center">Let's work together</h2>
+    <h2 class="text-3xl md:text-4xl font-bold mb-3 tracking-tight text-center">A backend problem you have not fully defined?</h2>
 
     <p class="text-[var(--muted)] mb-4 text-center">
 
