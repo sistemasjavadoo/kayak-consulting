@@ -417,12 +417,14 @@
         @media (min-width: 900px) {
             .hero-stage {
                 display: grid;
-                grid-template-columns: minmax(0, 1fr) minmax(200px, 22rem);
+                grid-template-columns: auto minmax(200px, 22rem);
+                column-gap: 2.5rem;
+                justify-content: start;
                 align-items: center;
             }
 
             .hero-copy {
-                padding: 3.5rem 3rem 3.5rem 4rem;
+                padding: 3.5rem 0 3.5rem 4rem;
             }
 
             .hero-photo {
