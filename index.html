@@ -1014,6 +1014,48 @@
             color: var(--accent);
         }
 
+        .contact-switch {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .contact-switch button {
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: transparent;
+            color: var(--muted);
+            font: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+
+        .contact-switch button.is-active {
+            background: var(--accent);
+            color: #1A140C;
+            border-color: transparent;
+        }
+
+        .cal-stack {
+            position: relative;
+            min-height: 700px;
+        }
+
+        .cal-frame {
+            width: 100%;
+            min-height: 700px;
+        }
+
+        .cal-frame.is-off {
+            position: absolute;
+            inset: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
     </style>
 
 </head>
@@ -2199,7 +2241,7 @@
 
 
 
-<section id="contact" data-home-section class="py-20 md:py-24 max-w-3xl mx-auto px-6">
+<section id="contact" data-home-section class="py-20 md:py-24 max-w-5xl mx-auto px-6">
 
     <h2 class="text-3xl md:text-4xl font-bold mb-3 tracking-tight text-center">Let's work together</h2>
 
@@ -2209,19 +2251,32 @@
 
     </p>
 
-    <p class="text-[var(--muted)] mb-10 text-sm text-center">
+    <p class="text-[var(--muted)] mb-8 text-sm text-center">
 
         Prefer LinkedIn?
         <a href="https://www.linkedin.com/in/federico-a-8845368/" target="_blank" rel="noopener noreferrer" class="text-[var(--accent)] hover:text-[var(--accent-hover)] underline underline-offset-2">Connect with me</a>
         or
-        <a href="https://www.linkedin.com/company/kayak-consulting-llc" target="_blank" rel="noopener noreferrer" class="text-[var(--accent)] hover:text-[var(--accent-hover)] underline underline-offset-2">follow Kayak Consulting LLC</a>
-        — or use the form below.
+        <a href="https://www.linkedin.com/company/kayak-consulting-llc" target="_blank" rel="noopener noreferrer" class="text-[var(--accent)] hover:text-[var(--accent-hover)] underline underline-offset-2">follow Kayak Consulting LLC</a>.
 
     </p>
 
+    <div id="contact-modes" class="contact-switch mb-6" role="tablist" aria-label="Contact options" hidden>
+        <button type="button" data-contact-mode="book" role="tab" aria-selected="false">Book a call</button>
+        <button type="button" class="is-active" data-contact-mode="message" role="tab" aria-selected="true">Send a message</button>
+    </div>
 
+    <div id="contact-book" hidden>
+        <div class="contact-switch mb-4" role="tablist" aria-label="Call length">
+            <button type="button" class="is-active" data-book="30" role="tab" aria-selected="true">30 min</button>
+            <button type="button" data-book="15" role="tab" aria-selected="false">15 min</button>
+        </div>
+        <div class="cal-stack">
+            <div id="cal-30" class="cal-frame"></div>
+            <div id="cal-15" class="cal-frame is-off"></div>
+        </div>
+    </div>
 
-    <form id="contact-form" class="space-y-4 text-left">
+    <form id="contact-form" class="space-y-4 text-left max-w-3xl mx-auto">
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
@@ -2350,13 +2405,119 @@
 
     (function () {
         var hero = document.querySelector(".hero-stage");
+        var contact = document.getElementById("contact");
         var cta = document.querySelector(".linkedin-cta");
-        if (!hero || !cta || !("IntersectionObserver" in window)) return;
-        var observer = new IntersectionObserver(function (entries) {
-            cta.classList.toggle("is-parked", entries[0].isIntersecting && entries[0].intersectionRatio > 0.45);
-        }, { threshold: [0, 0.45, 0.8] });
-        observer.observe(hero);
+        if (!cta || !("IntersectionObserver" in window)) return;
+        var heroOn = false;
+        var contactOn = false;
+        function park() {
+            cta.classList.toggle("is-parked", heroOn || contactOn);
+        }
+        if (hero) {
+            new IntersectionObserver(function (entries) {
+                heroOn = entries[0].isIntersecting && entries[0].intersectionRatio > 0.45;
+                park();
+            }, { threshold: [0, 0.45, 0.8] }).observe(hero);
+        }
+        if (contact) {
+            new IntersectionObserver(function (entries) {
+                contactOn = entries[0].isIntersecting && entries[0].intersectionRatio > 0.15;
+                park();
+            }, { threshold: [0, 0.15, 0.4] }).observe(contact);
+        }
     })();
+
+    (function (C, A, L) {
+        var p = function (a, ar) { a.q.push(ar); };
+        var d = C.document;
+        C.Cal = C.Cal || function () {
+            var cal = C.Cal;
+            var ar = arguments;
+            if (!cal.loaded) {
+                cal.ns = {};
+                cal.q = cal.q || [];
+                d.head.appendChild(d.createElement("script")).src = A;
+                cal.loaded = true;
+            }
+            if (ar[0] === L) {
+                var api = function () { p(api, arguments); };
+                var namespace = ar[1];
+                api.q = api.q || [];
+                if (typeof namespace === "string") {
+                    cal.ns[namespace] = cal.ns[namespace] || api;
+                    p(cal.ns[namespace], ar);
+                    p(cal, ["initNamespace", namespace]);
+                } else p(cal, ar);
+                return;
+            }
+            p(cal, ar);
+        };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    var calUi = {
+        theme: "dark",
+        styles: { branding: { brandColor: "#D4A574" } },
+        hideEventTypeDetails: false,
+        layout: "month_view"
+    };
+    var calBooted = {};
+
+    function bootCal(which) {
+        if (calBooted[which] || !window.Cal) return;
+        calBooted[which] = true;
+        var ns = which === "30" ? "thirty" : "fifteen";
+        var link = which === "30" ? "kayakconsultingusa/30min" : "kayakconsultingusa/15min";
+        Cal("init", ns, { origin: "https://cal.com" });
+        Cal.ns[ns]("inline", {
+            elementOrSelector: "#cal-" + which,
+            calLink: link,
+            config: {
+                layout: "month_view",
+                theme: "dark",
+                location: JSON.stringify({ value: "integrations:zoom", optionValue: "" })
+            }
+        });
+        Cal.ns[ns]("ui", calUi);
+    }
+
+    function showCallLength(which) {
+        document.querySelectorAll("[data-book]").forEach(function (button) {
+            var on = button.getAttribute("data-book") === which;
+            button.classList.toggle("is-active", on);
+            button.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        document.getElementById("cal-30").classList.toggle("is-off", which !== "30");
+        document.getElementById("cal-15").classList.toggle("is-off", which !== "15");
+        bootCal(which);
+    }
+
+    document.querySelectorAll("[data-contact-mode]").forEach(function (button) {
+        button.addEventListener("click", function () {
+            var book = button.getAttribute("data-contact-mode") === "book";
+            document.querySelectorAll("[data-contact-mode]").forEach(function (item) {
+                var on = item === button;
+                item.classList.toggle("is-active", on);
+                item.setAttribute("aria-selected", on ? "true" : "false");
+            });
+            document.getElementById("contact-book").hidden = !book;
+            document.getElementById("contact-form").hidden = book;
+            if (book) {
+                var active = document.querySelector("[data-book].is-active");
+                showCallLength(active ? active.getAttribute("data-book") : "30");
+            }
+        });
+    });
+
+    document.querySelectorAll("[data-book]").forEach(function (button) {
+        button.addEventListener("click", function () {
+            showCallLength(button.getAttribute("data-book"));
+        });
+    });
+
+    if (new URLSearchParams(window.location.search).get("mode") === "meeting") {
+        document.getElementById("contact-modes").hidden = false;
+        document.querySelector("[data-contact-mode='book']").click();
+    }
 
     const form = document.getElementById("contact-form");
 
