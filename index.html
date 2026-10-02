@@ -1215,54 +1215,32 @@
     <div class="mb-12 max-w-2xl">
         <h2 class="text-3xl font-bold tracking-tight md:text-4xl">What I bring</h2>
         <p class="mt-3 text-[var(--muted)]">
-            Senior backend work across industries where concurrency, integrations, and reliability matter. Domains below — not a named client list.
+            Senior backend work across industries where concurrency, integrations, and reliability matter. Not a named client list.
         </p>
     </div>
 
+    <p class="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)] mb-4">The work</p>
+
     <div class="bring" data-bring>
         <div class="bring-item is-open">
-            <button type="button" class="bring-tab" data-bring-tab aria-expanded="true">Performance</button>
+            <button type="button" class="bring-tab" data-bring-tab aria-expanded="true">Java and Spring upgrades</button>
+            <div class="bring-copy">Java version upgrades and dependency conflict resolution. Move a running system forward — the JDK, Spring, and the libraries — without a long freeze.</div>
+        </div>
+        <div class="bring-item">
+            <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Production performance</button>
             <div class="bring-copy">Finding and fixing bottlenecks in hot paths — concurrency, data access, async pipelines, and load that shows up only in production.</div>
         </div>
         <div class="bring-item">
-            <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Payments &amp; fintech</button>
-            <div class="bring-copy">High-concurrency payment backends, multi-country rules, and zero-downtime release patterns on systems that run around the clock.</div>
-        </div>
-        <div class="bring-item">
-            <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Marketplace &amp; catalog</button>
-            <div class="bring-copy">Product and catalog platforms — APIs as source of truth, inventory-aware flows, ML-assisted attributes to cut manual cataloging time.</div>
-        </div>
-        <div class="bring-item">
-            <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Supply chain</button>
-            <div class="bring-copy">Billing and partner integrations, warehouse edge devices into REST APIs, and UI/mobile pieces when the delivery needs it.</div>
-        </div>
-        <div class="bring-item">
-            <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Integrations</button>
-            <div class="bring-copy">Payment platforms and other external systems. Their APIs, webhooks, and failure modes stay at the edge — the core keeps one contract.</div>
-        </div>
-        <div class="bring-item">
-            <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Hardware integrations</button>
-            <div class="bring-copy">Ship-monitoring hardware, plus warehouse scales and dimensioners. Device readings land in an API the rest of the platform can use.</div>
-        </div>
-        <div class="bring-item">
-            <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Ops &amp; incidents</button>
-            <div class="bring-copy">Event-driven incident and notification platforms on AWS (SQS, SNS, SES, Lambda) for US / California product teams.</div>
+            <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Outside systems</button>
+            <div class="bring-copy">Payment platforms and other external systems. Their APIs, webhooks, and failure modes stay at the edge — the core keeps one contract. Ship-monitoring hardware, plus warehouse scales and dimensioners. Device readings land in an API the rest of the platform can use. ERP/SAP bridges and legacy modernization without freezing the business.</div>
         </div>
         <div class="bring-item">
             <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Async messaging</button>
             <div class="bring-copy">Kafka and Kinesis when the work cannot be a request and a response. Streams, retries, and consumers that keep moving when something downstream is down.</div>
         </div>
         <div class="bring-item">
-            <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Telecom BSS</button>
-            <div class="bring-copy">Billing and BSS cores under peak cycles, large subscriber bases, and data pipelines that have to stay up.</div>
-        </div>
-        <div class="bring-item">
-            <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Enterprise integration</button>
-            <div class="bring-copy">ERP/SAP bridges, tax and regulatory flows, legacy modernization without freezing the business.</div>
-        </div>
-        <div class="bring-item">
-            <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Migrations</button>
-            <div class="bring-copy">Java version upgrades and dependency conflict resolution. Move a running system forward — the JDK, Spring, and the libraries — without a long freeze.</div>
+            <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Ops &amp; incidents</button>
+            <div class="bring-copy">Event-driven incident and notification platforms on AWS (SQS, SNS, SES, Lambda) for US / California product teams.</div>
         </div>
         <div class="bring-item">
             <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Applied AI</button>
@@ -1278,6 +1256,27 @@
         <div class="bring-item">
             <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Tech evaluation</button>
             <div class="bring-copy">Research options, run spikes, and recommend what to adopt — then build whatever you decide. Trade-offs against your constraints, often with staff engineers and tech leads.</div>
+        </div>
+    </div>
+
+    <p class="mt-10 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)] mb-4">Industries</p>
+
+    <div class="bring" data-bring>
+        <div class="bring-item">
+            <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Payments &amp; fintech</button>
+            <div class="bring-copy">High-concurrency payment backends, multi-country rules, and zero-downtime release patterns on systems that run around the clock.</div>
+        </div>
+        <div class="bring-item">
+            <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Marketplace &amp; catalog</button>
+            <div class="bring-copy">Product and catalog platforms — APIs as source of truth, inventory-aware flows, ML-assisted attributes to cut manual cataloging time.</div>
+        </div>
+        <div class="bring-item">
+            <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Supply chain</button>
+            <div class="bring-copy">Maintained the live system and added features across shipping orders, receiving orders, billing, warehouse, inventory, replenishment, and transportation, including integrations with the vendors those operations use.</div>
+        </div>
+        <div class="bring-item">
+            <button type="button" class="bring-tab" data-bring-tab aria-expanded="false">Telecom BSS</button>
+            <div class="bring-copy">Billing and BSS cores under peak cycles, large subscriber bases, and data pipelines that have to stay up. Also a system that detects faults in the network.</div>
         </div>
     </div>
 
@@ -2442,16 +2441,16 @@
 <script>
 
     (function () {
-        var root = document.querySelector("[data-bring]");
-        if (!root) return;
-        root.addEventListener("click", function (event) {
-            var tab = event.target.closest("[data-bring-tab]");
-            if (!tab || !root.contains(tab)) return;
-            root.querySelectorAll(".bring-item").forEach(function (item) {
-                var open = item === tab.parentElement;
-                item.classList.toggle("is-open", open);
-                var button = item.querySelector("[data-bring-tab]");
-                if (button) button.setAttribute("aria-expanded", open ? "true" : "false");
+        document.querySelectorAll("[data-bring]").forEach(function (root) {
+            root.addEventListener("click", function (event) {
+                var tab = event.target.closest("[data-bring-tab]");
+                if (!tab || !root.contains(tab)) return;
+                root.querySelectorAll(".bring-item").forEach(function (item) {
+                    var open = item === tab.parentElement;
+                    item.classList.toggle("is-open", open);
+                    var button = item.querySelector("[data-bring-tab]");
+                    if (button) button.setAttribute("aria-expanded", open ? "true" : "false");
+                });
             });
         });
     })();
